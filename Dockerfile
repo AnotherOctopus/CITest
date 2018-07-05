@@ -1,5 +1,5 @@
 # Use an official Python
-FROM python:2.7-slim
+FROM resin/rpi-raspbian
 
 # Set workdit to /app
 WORKDIR /app
@@ -8,7 +8,9 @@ WORKDIR /app
 ADD . /app
 
 # install any needed packages specified in requirements
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+RUN apt-get update
+RUN apt-get install gcc python python-dev python-pip
+RUN pip install -r requirements.txt
 
 # Make oirt 80 available to the outside world throught this container
 EXPOSE 80
