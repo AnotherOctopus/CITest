@@ -1,5 +1,5 @@
 # Use an official Python
-FROM resin/rpi-raspbian
+FROM resin/raspberrypi3-python
 
 # Set workdit to /app
 WORKDIR /app
@@ -8,8 +8,6 @@ WORKDIR /app
 ADD . /app
 
 # install any needed packages specified in requirements
-RUN apt-get update
-RUN apt-get install gcc python python-dev python-pip
 RUN pip install -r requirements.txt
 
 # Make oirt 80 available to the outside world throught this container
