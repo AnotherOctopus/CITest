@@ -10,8 +10,7 @@ node {
                 app.push(env.BRANCH_NAME)
         }
         stage ('test'){
-                app.inside {
-                        sh 'echo "PASSED"'
-                }
+		sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'df -H\''
+		sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'docker run anotheroctopus/rovimage\''
         }       
 }
