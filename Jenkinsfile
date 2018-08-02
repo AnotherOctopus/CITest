@@ -14,4 +14,7 @@ node {
                         sh 'echo "PASSED"'
                 }
         }       
+        stage ('post'){
+                slackSend(color: '#00FF00',message: 'mine eyes have seen the glory')
+        }
 }
