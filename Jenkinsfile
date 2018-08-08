@@ -14,10 +14,8 @@ node {
         }
         stage ('test'){
 		sh 'id'
-		sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'df -H\''
-		sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'docker run anotheroctopus/rovimage\''
         }       
         stage ('post'){
-                slackSend(color: '#00FF00',message: branchname)
+                slackSend(color: '#00FF00',message: 'Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!')
         }
 }
