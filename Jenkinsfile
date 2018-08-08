@@ -1,8 +1,14 @@
 node {
         def app
         stage ('build') {
-                checkout scm
                 sh 'echo ${PULLBRANCH}'
+                checkout([$class: 'GitSCM', 
+                    branches: [[name: '*/${PULLBRANCH}']], 
+                    doGenerateSubmoduleConfigurations: false, 
+                    extensions: [], 
+                    submoduleCfg: [], 
+                    userRemoteConfigs: [[]]
+                ])
                 sh 'id'
                 app = docker.build("anotheroctopus/rovimage")
         }
