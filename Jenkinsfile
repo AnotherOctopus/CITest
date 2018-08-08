@@ -16,6 +16,6 @@ node {
 		sh 'id'
         }       
         stage ('post'){
-                slackSend(color: '#00FF00',message: 'Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!')
+                slackSend(color: "#00FF00",message: "Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!")
         }
 }
