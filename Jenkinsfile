@@ -15,6 +15,6 @@ node {
 		sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'docker run anotheroctopus/rovimage\''
         }       
         stage ('post'){
-                slackSend(color: '#00FF00',message: 'mine eyes have seen the glory')
+                slackSend(color: '#00FF00',message: branchname)
         }
 }
