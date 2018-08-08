@@ -2,6 +2,7 @@ node {
         def app
         stage ('build') {
                 checkout scm
+                sh 'echo ${PULLBRANCH}'
                 sh 'id'
                 app = docker.build("anotheroctopus/rovimage")
         }
