@@ -1,6 +1,7 @@
 node {
         def app
         stage ('build') {
+                checkout scm
                 sh 'echo ${PULLBRANCH}'
                 sh 'git fetch'
                 sh 'git checkout ${PULLBRANCH}' 
