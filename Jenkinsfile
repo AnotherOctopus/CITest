@@ -3,7 +3,7 @@ node {
         stage ('build') {
                 sh 'echo ${PULLBRANCH}'
                 checkout([$class: 'GitSCM', 
-                    branches: [[name: '*/${PULLBRANCH}']], 
+                    branches: [[name: '*/newnewbranch']], 
                     doGenerateSubmoduleConfigurations: false, 
                     extensions: [], 
                     submoduleCfg: [], 
