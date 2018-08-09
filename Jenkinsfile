@@ -1,6 +1,7 @@
 node {
         def app
         stage ('build') {
+                checkout scm
                 sh 'echo ${PULLBRANCH}'
                 sh 'git fetch'
                 sh 'git checkout ${PULLBRANCH}' 
@@ -11,12 +12,17 @@ node {
                 sh 'docker login -u anotheroctopus -p 44Cobr@'
                 app.push(env.BRANCH_NAME)
         }
-        stage ('test'){
+        stage ('launchROV'){
 		sh 'id'
-		sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'df -H\''
-		sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'docker run anotheroctopus/rovimage\''
+                sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'df -H\''
+		sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'docker run anotheroctopus/rovimage:${PULLBRANCH}\''
+        }
+        stage ('test'){
         }       
         stage ('post'){
-                slackSend(color: '#00FF00',message: branchname)
+                sh 'echo ${PULLMAKER}'
+                sh 'echo ${REVIEWERS}'
+                slackSend(color: "#00FF00",message: "Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!")
+                slackSend(color: "#00FF00",message: "Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull")
         }
 }
