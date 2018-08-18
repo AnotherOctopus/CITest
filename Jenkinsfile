@@ -51,7 +51,7 @@ node {
                 }
         }
         stage ('test'){
-                python 'tests/testem.py'
+                sh 'python tests/testem.py'
         }       
         stage ('post'){
                 sh 'echo ${PULLMAKER}'
