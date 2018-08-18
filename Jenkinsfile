@@ -6,6 +6,7 @@ node {
                         sh 'echo ${PULLBRANCH}'
                         sh 'ls'
                         sh 'git checkout ${PULLBRANCH}' 
+                        sh 'git pull'
                         sh 'ls'
                 }catch(error){
                         slackSend(color: "#FF0000",message: "Hum, we failed checking out the repo. Idk man")
