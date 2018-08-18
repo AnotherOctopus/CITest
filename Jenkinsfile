@@ -32,19 +32,19 @@ node {
         }
         stage('lint'){
                 try{
-                        golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
+                        //golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
                 }catch(error){
                         slackSend(color: "#FF0000",message: "Linting Go Files Failed!")
                         error "LINT FAILED"
                 }
                 try{
-                        pylint = sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
+                        //pylint = sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
                 }catch(error){
                         slackSend(color: "#FF0000",message: "Linting Python Files Failed!")
                         error "LINT FAILED"
                 }
                 try{
-                        eslint = sh(returnStdout:true, script: 'find . -iname "*.jsx" | xargs eslint -d').trim()
+                        //eslint = sh(returnStdout:true, script: 'find . -iname "*.jsx" | xargs eslint -d').trim()
                 }catch(error){
                         slackSend(color: "#FF0000",message: "Linting React Files Failed!")
                         error "LINT FAILED"
