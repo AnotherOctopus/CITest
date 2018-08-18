@@ -18,7 +18,6 @@ node {
                 }
         }
         stage ('launchROV'){
-                sh 'ls .'
                 try{
                         sh 'docker login -u anotheroctopus -p 44Cobr@'
                         app.push(env.BRANCH_NAME)
