@@ -9,7 +9,8 @@ node {
                         sh 'id'
                         app = docker.build("anotheroctopus/rovimage")
                 }catch(error){
-                        slackSend(color: "#00FF00",message: "Hum, we failed checking out the repo. Idk man")
+                        slackSend(color: "#FF0000",message: "Hum, we failed checking out the repo. Idk man")
+                        error "SOURCE FAILED TO BUILD"
                 }
         }
         stage ('launchROV'){
@@ -20,7 +21,8 @@ node {
                         sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'df -H\''
                         sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'docker run anotheroctopus/rovimage:${PULLBRANCH}\''
                 }catch(error){
-                        slackSend(color: "#00FF00",message: "Launching the ROV failed. Probably some networking nonesense")
+                        slackSend(color: "#FF0000",message: "Launching the ROV failed. Probably some networking nonesense")
+                        error "ROV FAILED TO LAUNCH"
                 }
         }
         stage('lint'){
