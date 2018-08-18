@@ -14,7 +14,7 @@ node {
                 try{
                         app = docker.build("anotheroctopus/rovimage")
                 }catch(error){
-                        slackSend(color: "#FF0000",message: "So the docker image didn't build, so its either Scotty's fault or the Dockerfile"
+                        slackSend(color: "#FF0000",message: "So the docker image didn't build, so its either Scotty's fault or the Dockerfile")
                         error("BUILD FAILED")
                 }
         }
