@@ -51,11 +51,10 @@ node {
                 }
         }
         stage ('test'){
+                sh 'ls .'
                 sh 'python tests/testem.py'
         }       
         stage ('post'){
-                sh 'echo ${PULLMAKER}'
-                sh 'echo ${REVIEWERS}'
                 slackSend(color: "#00FF00",message: "Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!")
                 slackSend(color: "#00FF00",message: "Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull")
         }
