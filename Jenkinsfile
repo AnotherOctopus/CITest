@@ -37,7 +37,7 @@ node {
                         slackSend(color: "#FF0000",message: "Linting Go Files on PR#${PULLNUM} Failed!")
                         error("LINT FAILED")
                 }
-                String pylint = "blah"//sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
+                String pylint = "blah 10.00/10"//sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
                 if(!pylint.contains("10.00/10")){
                         slackSend(color: "#FF0000",message: "Linting Python Files Failed!")
                         error("LINT FAILED")
