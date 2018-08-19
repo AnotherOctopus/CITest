@@ -3,16 +3,16 @@
 package main
 
 import (
-        "log"
+	"log"
+	"math"
 	"net"
 	"net/http"
 	"runtime"
 	"sync"
 	"time"
-	"math"
 )
 
-const NUMBOTS = 2//Number of bots in the game
+const NUMBOTS = 2 //Number of bots in the game
 const PXWIDTH = 640
 const PXHEIGHT = 480
 const OUTPORT = "1917" // The port the bots will recieve commands from
@@ -29,7 +29,7 @@ func main_full() {
 	var lohost string
 	lohost = ips.Cpu[0]
 	log.Println(lohost)
-//	uploaddomain(CAROLYNSERVER,palhost)
+	//	uploaddomain(CAROLYNSERVER,palhost)
 	//This is the starting port for the sheeps response
 	inportstart := 2000
 	var commandwg sync.WaitGroup
@@ -40,7 +40,7 @@ func main_full() {
 
 	//Initializing camera
 	camip := "localhost"
-	cam := initcamera(NUMBOTS, CAMPORT,camip)
+	cam := initcamera(NUMBOTS, CAMPORT, camip)
 
 	//Initializing idhash. used to get a certain sheep object from an id
 	camToIdx := make(map[uint64]*Sheep)
@@ -59,7 +59,7 @@ func main_full() {
 			sheep.sendCommands(outServerAddr)
 			sheep.commands.sheepF &= 0xBF
 		}
-		wait := time.NewTimer(10*time.Second)
+		wait := time.NewTimer(10 * time.Second)
 		<-wait.C
 		panic("REPROGRAMMED")
 	}
@@ -73,11 +73,11 @@ func main_full() {
 		sheep.commands.sheepF |= SHEEPLIGHT
 		sheep.sendCommands(outServerAddr)
 
-		wait := time.NewTimer(time.Second*2)
+		wait := time.NewTimer(time.Second * 2)
 		<-wait.C
 
-		ids, xs, ys,orients := cam.getPos()
-		for idx,id := range ids {
+		ids, xs, ys, orients := cam.getPos()
+		for idx, id := range ids {
 			_, inHash := camToIdx[id]
 			if !inHash {
 				sheep.currX = xs[idx]
@@ -92,15 +92,15 @@ func main_full() {
 		}
 		if !found {
 			panic("SHEEP NOT FOUND IN INITIALIZATION PROCESS")
-		}else{
+		} else {
 			sheep.sendCommands(outServerAddr)
 			sheep.commands.sheepF &= 0xFE
 		}
-		log.Println("IDing ids",ids)
+		log.Println("IDing ids", ids)
 	}
 
 	//Initializing Frontend Server
-	datawrite := MkChanDataWrite(ips.Fes, NUMBOTS,sheeps)
+	datawrite := MkChanDataWrite(ips.Fes, NUMBOTS, sheeps)
 	//Setup server for the unity to make put requests too
 	http.HandleFunc("/", http.HandlerFunc(datawrite.Botctrlserve))
 	http.HandleFunc("/info", http.HandlerFunc(datawrite.APIServe))
@@ -109,7 +109,7 @@ func main_full() {
 	//Wait for both Front ends to check in
 	log.Println("Waiting For FE to Connect")
 	for datawrite.gamestart != true {
-		wait := time.NewTimer(time.Millisecond*10)
+		wait := time.NewTimer(time.Millisecond * 10)
 		<-wait.C
 	}
 
@@ -121,9 +121,9 @@ func main_full() {
 	for gamedone == false {
 
 		//Update the position of all of the bots
-		ids, xs, ys,orients := cam.getPos()
+		ids, xs, ys, orients := cam.getPos()
 		for i, id := range ids {
-			sheep,found := camToIdx[id]
+			sheep, found := camToIdx[id]
 			if found {
 				sheep.currX = xs[i]
 				sheep.currY = ys[i]
@@ -134,59 +134,58 @@ func main_full() {
 		datawrite.FE.UpdateGndBots(sheeps, false, false)
 
 		//using the frontend commands, prepare the command structure for each sheep
-		for _, sheep := range sheeps{
-			pat, _, fire, turretAngl,_ := datawrite.frInfo(sheep)
+		for _, sheep := range sheeps {
+			pat, _, fire, turretAngl, _ := datawrite.frInfo(sheep)
 			//Fire or don't fire
-			sheep.firing(fire,0.4)
+			sheep.firing(fire, 0.4)
 			//Set servo angle
 			sheep.setTurrAngle(turretAngl)
 			if top {
 				sheep.commands.sheepF |= SHEEPLIGHT
-			}else{
+			} else {
 				sheep.commands.sheepF &= 0xEF
 			}
 			//Get next point to travel too
-			next := getNextPoint(sheep,pat,50)
-			dist := euclidDist(next.X, float64(sheep.currX),next.Y, float64(sheep.currY))
+			next := getNextPoint(sheep, pat, 50)
+			dist := euclidDist(next.X, float64(sheep.currX), next.Y, float64(sheep.currY))
 
 			sheep.commands.relDesY = int16(next.Y - float64(sheep.currY))
 			sheep.commands.relDesX = int16(next.X - float64(sheep.currX))
-			des_angle :=math.Atan2(-float64(sheep.commands.relDesY),float64(sheep.commands.relDesX))*180/3.141
-			if des_angle < 0{
+			des_angle := math.Atan2(-float64(sheep.commands.relDesY), float64(sheep.commands.relDesX)) * 180 / 3.141
+			if des_angle < 0 {
 				des_angle += 360
 			}
 			/*
-			if sheep.currX < MARGIN {
-				sheep.commands.relDesY = 0
-				sheep.commands.relDesX = 40
-			}
-			if sheep.currX > PXWIDTH - MARGIN {
-				sheep.commands.relDesY = 0
-				sheep.commands.relDesX = -40
-			}
-			if sheep.currY < MARGIN {
-				sheep.commands.relDesY = 40
-				sheep.commands.relDesX = 0
-			}
-			if sheep.currY > PXHEIGHT - MARGIN{
-				sheep.commands.relDesY = -40
-				sheep.commands.relDesX = 0
-			}
+				if sheep.currX < MARGIN {
+					sheep.commands.relDesY = 0
+					sheep.commands.relDesX = 40
+				}
+				if sheep.currX > PXWIDTH - MARGIN {
+					sheep.commands.relDesY = 0
+					sheep.commands.relDesX = -40
+				}
+				if sheep.currY < MARGIN {
+					sheep.commands.relDesY = 40
+					sheep.commands.relDesX = 0
+				}
+				if sheep.currY > PXHEIGHT - MARGIN{
+					sheep.commands.relDesY = -40
+					sheep.commands.relDesX = 0
+				}
 			*/
 			log.Println("####################GAME STEP ##################################")
-			log.Println("Servo Desired: ",turretAngl)
-			log.Println("Servo Actual: ",sheep.commands.servoAngle)
-			log.Println("Dist: ",dist)
-			log.Println("Next: ",next)
-			log.Println("SheepHealth: ",sheep.resp.health)
-			log.Println("Sheep Pos:",sheep.currX,sheep.currY)
-			log.Println("Sheep Orient:",sheep.commands.camOrient)
+			log.Println("Servo Desired: ", turretAngl)
+			log.Println("Servo Actual: ", sheep.commands.servoAngle)
+			log.Println("Dist: ", dist)
+			log.Println("Next: ", next)
+			log.Println("SheepHealth: ", sheep.resp.health)
+			log.Println("Sheep Pos:", sheep.currX, sheep.currY)
+			log.Println("Sheep Orient:", sheep.commands.camOrient)
 			log.Println("Trying To get to: ", sheep.commands.relDesX, sheep.commands.relDesY)
-			log.Println("Path: ",pat)
-			log.Println("PathHead: ",sheep.pathhead)
-			log.Println("Fire?: ",fire)
+			log.Println("Path: ", pat)
+			log.Println("PathHead: ", sheep.pathhead)
+			log.Println("Fire?: ", fire)
 		}
-
 
 		//Send those commands down to the bots. this is done in a burst of threads
 		commandwg.Add(NUMBOTS)
@@ -197,7 +196,7 @@ func main_full() {
 			sheep.sendCommands(outServerAddr)
 		}
 		//Wait until all of the bots respond
-		wait := time.NewTimer(time.Millisecond*50)
+		wait := time.NewTimer(time.Millisecond * 50)
 		<-wait.C
 		commandwg.Wait()
 
@@ -227,7 +226,7 @@ func main_frontend() {
 	sheeps[1].resp.health = 10
 	//uploaddomain(CAROLYNSERVER,palhost)
 	//Initializing Frontend Server
-	datawrite := MkChanDataWrite(ips.Fes, NUMBOTS,sheeps)
+	datawrite := MkChanDataWrite(ips.Fes, NUMBOTS, sheeps)
 	//Setup server for the unity to make put requests too
 	http.HandleFunc("/", http.HandlerFunc(datawrite.Botctrlserve))
 	http.HandleFunc("/info", http.HandlerFunc(datawrite.APIServe))
@@ -235,37 +234,37 @@ func main_frontend() {
 
 	log.Println("Waiting For FE to Connect")
 	for datawrite.gamestart != true {
-		wait := time.NewTimer(time.Millisecond*10)
+		wait := time.NewTimer(time.Millisecond * 10)
 		<-wait.C
 	}
-
 
 	log.Println("Enter Game")
 	for {
 		datawrite.FE.UpdateGndBots(sheeps, false, false)
 
-		_, _, fire, turretAngl,_ := datawrite.frInfo(sheeps[0])
-		sheeps[0].firing(fire,1)
+		_, _, fire, turretAngl, _ := datawrite.frInfo(sheeps[0])
+		sheeps[0].firing(fire, 1)
 		sheeps[0].setTurrAngle(turretAngl)
 		log.Println(sheeps[0].commands.servoAngle)
-		_, _, fire, turretAngl,_ = datawrite.frInfo(sheeps[1])
-		sheeps[1].firing(fire,1)
+		_, _, fire, turretAngl, _ = datawrite.frInfo(sheeps[1])
+		sheeps[1].firing(fire, 1)
 		sheeps[1].setTurrAngle(turretAngl)
-		sheeps[1].currY = (sheeps[1].currY + 1)%500
+		sheeps[1].currY = (sheeps[1].currY + 1) % 500
 
-		wait := time.NewTimer(time.Millisecond*50)
+		wait := time.NewTimer(time.Millisecond * 50)
 		<-wait.C
 	}
 }
+
 //Code to test the camera
 func main_camera() {
-	cam := initcamera(5, "1918","localhost")
+	cam := initcamera(5, "1918", "localhost")
 	for {
 		log.Println(cam.getPos())
 	}
 }
 
-func main(){
+func main() {
 	// This works and strip "/static/" fragment from path
 	main_full()
 	//main_camera()
