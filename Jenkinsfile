@@ -37,15 +37,13 @@ node {
                         slackSend(color: "#FF0000",message: "Linting Go Files on PR#${PULLNUM} Failed!")
                         error("LINT FAILED")
                 }
-                try{
-                        //pylint = sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d --rcfile=pylintrc.conf').trim()
-                }catch(error){
+                pylint = "blah"//sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
+                if(!pylint.contains("10.00/10")){
                         slackSend(color: "#FF0000",message: "Linting Python Files Failed!")
                         error("LINT FAILED")
                 }
-                try{
-                        //eslint = sh(returnStdout:true, script: 'find . -iname "*.jsx" | xargs eslint -d').trim()
-                }catch(error){
+                /*eslint = sh(returnStdout:true, script: 'find . -iname "*.jsx" | xargs eslint -d').trim()
+                if(eslint != ""){
                         slackSend(color: "#FF0000",message: "Linting React Files Failed!")
                         error("LINT FAILED")
                 } 
