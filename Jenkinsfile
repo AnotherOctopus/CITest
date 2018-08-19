@@ -47,6 +47,7 @@ node {
                         slackSend(color: "#FF0000",message: "Linting React Files Failed!")
                         error("LINT FAILED")
                 } 
+                */
         }
         stage ('test'){
                 sh 'ls .'
