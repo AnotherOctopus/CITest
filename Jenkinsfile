@@ -4,10 +4,8 @@ node {
                 try{    
                         checkout scm
                         sh 'echo ${PULLBRANCH}'
-                        sh 'ls'
                         sh 'git checkout ${PULLBRANCH}' 
                         sh 'git pull'
-                        sh 'ls'
                 }catch(error){
                         slackSend(color: "#FF0000",message: "Hum, we failed checking out the repo. Idk man")
                         error("SOURCE FAILED")
@@ -37,17 +35,16 @@ node {
                         slackSend(color: "#FF0000",message: "Linting Go Files on PR#${PULLNUM} Failed!")
                         error("LINT FAILED")
                 }
-                String pylint = "blah 10.00/10"//sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
+                pylint = "blah 10.00/10"//sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
                 if(!pylint.contains("10.00/10")){
-                        slackSend(color: "#FF0000",message: "Linting Python Files Failed!")
+                        slackSend(color: "#FF0000",message: "Linting Python Files on PR#${PULLNUM} Failed!")
                         error("LINT FAILED")
                 }
-                /*eslint = sh(returnStdout:true, script: 'find . -iname "*.jsx" | xargs eslint -d').trim()
+                eslint = sh(returnStdout:true, script: 'eslint -c "eslint.js" .').trim()
                 if(eslint != ""){
-                        slackSend(color: "#FF0000",message: "Linting React Files Failed!")
+                        slackSend(color: "#FF0000",message: "Linting JSX Files on PR#${PULLNUM} Failed!")
                         error("LINT FAILED")
                 } 
-                */
         }
         stage ('test'){
                 sh 'ls .'
