@@ -38,7 +38,7 @@ node {
                         error("LINT FAILED")
                 }
                 try{
-                        //pylint = sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
+                        //pylint = sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d --rcfile=pylintrc.conf').trim()
                 }catch(error){
                         slackSend(color: "#FF0000",message: "Linting Python Files Failed!")
                         error("LINT FAILED")
