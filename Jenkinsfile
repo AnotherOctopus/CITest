@@ -33,7 +33,7 @@ node {
         }
         stage('lint'){
                 golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
-                if(!golint.equals(""){
+                if(golint != ""){
                         slackSend(color: "#FF0000",message: "Linting Go Files Failed!")
                         error("LINT FAILED")
                 }
