@@ -1,3 +1,6 @@
+'''
+blah
+'''
 import unittest
 from tests import *
 
