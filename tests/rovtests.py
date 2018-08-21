@@ -1,6 +1,9 @@
 import unittest
 from rovclass import RovTest
 
+'''
+blah
+'''
 class TestOne(RovTest):
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
@@ -16,6 +19,9 @@ class TestOne(RovTest):
         with self.assertRaises(TypeError):
             s.split(2)
 
+'''
+blah
+'''
 class TestTwo(RovTest):
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')

@@ -19,9 +19,9 @@ class CanDevice(object):
         pass
 
 class RovInterface(object):
-    def __init__(self,ip,port,devices = [],neton = True):
+    def __init__(self, ip, port, devices=[], neton = True):
         if neton:
-            self._netInter = ROVControl(ip,port)
+            self._netInter = ROVControl(ip, port)
         else:
             self._netInter = None
 

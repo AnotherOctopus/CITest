@@ -8,10 +8,10 @@ logging.basicConfig()
 
 class NameSpace(BaseNamespace):
     def on_connect(self):
-        print("[Connected to Server]")
+        print "[Connected to Server]"
 
     def on_reconnect(self):
-        print("[Reconnected to Server]")
+        print "[Reconnected to Server]"
 
     def on_disconnect(self):
         print("[Disconnected from Server]")
