@@ -1,7 +1,5 @@
 
 def WindDown(errorname){
-        sh 'deactivate'
-        sh 'rm -r venv'
         error(errorname)
 }
 node {
