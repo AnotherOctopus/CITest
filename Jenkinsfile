@@ -7,7 +7,7 @@ def WindDown(errorname){
 node {
         def app
         stage ('setup_virtualenv'){
-                withPythonEnv('testEnv'){
+                withPythonEnv('/var/lib/jenkins/workspace/ipliner/'){
                     pysh 'pip install pylint'
                 }
         }
