@@ -7,7 +7,7 @@ node {
         stage ('setup_virtualenv'){
                 sh 'pwd'
                 sh 'virtualenv venv'
-                sh 'source venv/bin/activate'
+                sh '. venv/bin/activate'
         }
         stage ('build') {
                 try{    
