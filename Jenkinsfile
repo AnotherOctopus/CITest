@@ -7,7 +7,7 @@ def WindDown(errorname){
 node {
         def app
         stage ('setup_virtualenv'){
-                withPythonEnv('System-CPython-2.7'){
+                withPythonEnv('/usr/bin/python'){
                     pysh 'pip install pylint'
                 }
         }
@@ -46,7 +46,7 @@ node {
                         slackSend(color: "#FF0000",message: "Linting Go Files on PR#${PULLNUM} Failed!")
                         WindDown("LINT FAILED")
                 }
-                withPythonEnv('testEnv'){
+                withPythonEnv('/usr/bin/python'){
                         pylint = sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
                         if(!pylint.contains("10.00/10")){
                                 slackSend(color: "#FF0000",message: "Linting Python Files on PR#${PULLNUM} Failed!")
