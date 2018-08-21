@@ -5,11 +5,11 @@ def WindDown(errorname){
 node {
         def app
         stage ('setup_virtualenv'){
-                bash 'pwd'
-                bash 'virtualenv venv'
-                bash 'source venv/bin/activate'
-                bash 'which python'
-                bash 'pip install pylint'
+                sh 'pwd'
+                sh 'virtualenv venv'
+                sh 'source venv/bin/activate'
+                sh 'which python'
+                sh 'pip install pylint'
         }
         stage ('build') {
                 try{    
