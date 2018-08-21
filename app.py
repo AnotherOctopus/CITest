@@ -1,9 +1,5 @@
 '''
-<<<<<<< HEAD
-blah
-=======
 dfsf
->>>>>>> development
 '''
 import os
 import socket
@@ -20,13 +16,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-<<<<<<< HEAD
-    """Documentation and sheeeeet"""
-=======
     '''
     fdf
     '''
->>>>>>> development
     try:
         visits = redis.incr("counter")
     except RedisError:
