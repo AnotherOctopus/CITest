@@ -1,0 +1,17 @@
+.App {
+  column-count: 3;
+  column-gap: 5px;
+  margin: 0 0 0 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: blue;
+}
+
+.container-fluid {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.appbg{
+  background-color: #2A3132; /* Green */
+}
