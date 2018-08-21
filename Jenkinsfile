@@ -8,6 +8,8 @@ node {
                 sh 'pwd'
                 sh 'virtualenv venv'
                 sh '. venv/bin/activate'
+                sh 'which python'
+                sh 'pip install pylint'
         }
         stage ('build') {
                 try{    
