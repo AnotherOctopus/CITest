@@ -1,13 +1,13 @@
+
 def WindDown(errorname){
-        sh 'deactivate'
         error(errorname)
 }
 node {
         def app
         stage ('setup_virtualenv'){
-                sh 'pwd'
-                sh 'virtualenv venv'
-                sh 'source venv/bin/activate'
+                withPythonEnv('/usr/bin/python'){
+                    pysh 'pip install pylint'
+                }
         }
         stage ('build') {
                 try{    
@@ -44,10 +44,12 @@ node {
                         slackSend(color: "#FF0000",message: "Linting Go Files on PR#${PULLNUM} Failed!")
                         WindDown("LINT FAILED")
                 }
-                pylint = sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
-                if(!pylint.contains("10.00/10")){
-                        slackSend(color: "#FF0000",message: "Linting Python Files on PR#${PULLNUM} Failed!")
-                        WindDown("LINT FAILED")
+                withPythonEnv('/usr/bin/python'){
+                        pylint = pysh(returnStdout:true, script: 'pylint tests/').trim()
+                        if(!pylint.contains("10.00/10")){
+                                slackSend(color: "#FF0000",message: "Linting Python Files on PR#${PULLNUM} Failed!")
+                                WindDown("LINT FAILED")
+                        }
                 }
                 sh "cd mirrorui/"
                 eslint = sh(returnStdout:true, script: 'eslint -c "eslintrc.js" .').trim()
