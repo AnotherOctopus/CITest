@@ -45,7 +45,7 @@ node {
                         WindDown("LINT FAILED")
                 }
                 withPythonEnv('/usr/bin/python'){
-                        pylint = sh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
+                        pylint = pysh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint -d').trim()
                         if(!pylint.contains("10.00/10")){
                                 slackSend(color: "#FF0000",message: "Linting Python Files on PR#${PULLNUM} Failed!")
                                 WindDown("LINT FAILED")
