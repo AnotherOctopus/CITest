@@ -2,7 +2,7 @@
 blah
 '''
 import unittest
-from tests import *
+from rovtests import *
 
 if __name__ == "__main__":
     unittest.main()
