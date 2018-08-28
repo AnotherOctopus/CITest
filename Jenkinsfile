@@ -6,9 +6,11 @@ def WindDown(errorname){
 node {
         def app
         stage ('setup_virtualenv'){
-                sh "mkdir -p ${env.logsite}/${PULLNUM}"
+                sh "mkdir -p ${env.logsite}/PR#${PULLNUM}"
                 withPythonEnv('/usr/bin/python'){
                     pysh 'pip install pylint'
+                    sh 'git clone https://github.com/AnotherOctopus/socketIO-client'
+                    pysh 'pip install ./socketIO-client/'
                 }
         }
         stage ('build') {
@@ -68,9 +70,9 @@ node {
                 }
                 sh "echo \"" + golint + " \" > golint.log"
 
-                sh "mv pylint.log ${env.logsite}/${PULLNUM}"
-                sh "mv eslint.log ${env.logsite}/${PULLNUM}"
-                sh "mv golint.log ${env.logsite}/${PULLNUM}"
+                sh "mv pylint.log ${env.logsite}/PR#${PULLNUM}"
+                sh "mv eslint.log ${env.logsite}/PR#${PULLNUM}"
+                sh "mv golint.log ${env.logsite}/PR#${PULLNUM}"
         }
         stage ('test'){
                 withPythonEnv('/usr/bin/python'){
