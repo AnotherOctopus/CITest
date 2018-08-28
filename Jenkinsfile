@@ -1,6 +1,10 @@
 
 def WindDown(errorname){
-        slackSend(color: "#FF0000",message: "Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Failed!\nFind the logs here: http://aberdeen.purdueieee.org:1944/")
+        msg = "
+        Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Failed!
+        Find the logs here: http://aberdeen.purdueieee.org:1944/
+        "
+        slackSend(color: "#FF0000",message: msg)
         error(errorname)
 }
 node {
@@ -20,13 +24,15 @@ node {
                         sh 'git checkout ${PULLBRANCH}' 
                         sh 'git pull'
                 }catch(error){
-                        slackSend(color: "#FF0000",message: "Hum, we failed checking out the repo. Idk man")
+                        msg = "Hum, we failed checking out the repo. Idk man" 
+                        slackSend(color: "#FF0000",message: msg)
                         WindDown("SOURCE FAILED")
                 }
                 try{
                         app = docker.build("anotheroctopus/rovimage")
                 }catch(error){
-                        slackSend(color: "#FF0000",message: "So the docker image didn't build, so its either Scotty's fault or the Dockerfile")
+                        msg = "So the docker image didn't build, so its either Scotty's fault or the Dockerfile"
+                        slackSend(color: "#FF0000",message: msg)
                         WindDown("BUILD FAILED")
                 }
         }
@@ -38,19 +44,20 @@ node {
                         //sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'df -H\''
                         //sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'docker run anotheroctopus/rovimage:${PULLBRANCH}\''
                 }catch(error){
-                        slackSend(color: "#FF0000",message: "Launching the ROV failed. Probably some networking nonesense")
+                        msg = "Launching the ROV failed. Probably some networking nonesense"
+                        slackSend(color: "#FF0000",message: msg)
                         WindDown("ROV FAILED TO LAUNCH")
                 }
         }
         stage('lint'){
-                sh "echo ${env.logsite}"
+                linterrmsg = ""
 
                 // Lint Python
                 withPythonEnv('/usr/bin/python'){
                         try{
                                 pysh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint  --rcfile=pylintrc.conf > pylint.log').trim()
                         }catch(error){
-                                slackSend(color: "#FF0000",message: "Linting Python Files on PR#${PULLNUM} Failed!")
+                                linterrmsg +="Linting Python Files on PR#${PULLNUM} Failed!\n" 
                         }
                 }
 
@@ -59,17 +66,21 @@ node {
                 try{
                         sh(returnStdout:true, script: 'eslint -c "eslintrc.js" . > eslint.log').trim()
                 }catch(error){
-                        slackSend(color: "#FF0000",message: "Linting JSX Files on PR#${PULLNUM} Failed!")
+                        linterrmsg +="Linting JSX Files on PR#${PULLNUM} Failed!\n" 
                 }
                 sh "cd ../"
 
                 //Lint Go
                 golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
                 if(golint != ""){
-                        slackSend(color: "#FF0000",message: "Linting Go Files on PR#${PULLNUM} Failed!")
+                        linterrmsg +="Linting go Files on PR#${PULLNUM} Failed!\n" 
                 }
                 sh "echo \"" + golint + " \" > golint.log"
 
+                if(linterrmsg != ""){
+                        slackSend(color: "#FF0000",message: linterrmsg)
+                        WindDown("LINTERROR")
+                }
                 sh "mv pylint.log ${env.logsite}/PR#${PULLNUM}"
                 sh "mv eslint.log ${env.logsite}/PR#${PULLNUM}"
                 sh "mv golint.log ${env.logsite}/PR#${PULLNUM}"
@@ -80,7 +91,10 @@ node {
                 }
         }       
         stage ('post'){
-                slackSend(color: "#00FF00",message: "Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!\n Check out the logs here http://aberdeen.purdueieee.org:1944/")
-                slackSend(color: "#00FF00",message: "Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull")
+                msg = "
+Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!\n
+Check out the logs here http://aberdeen.purdueieee.org:1944/
+Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull"
+                slackSend(color: "#00FF00",message:  msg)
         }
 }
