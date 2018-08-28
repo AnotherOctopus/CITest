@@ -39,7 +39,6 @@ node {
                 }
         }
         stage('lint'){
-                        ${env.logsite}
                 golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
                 withPythonEnv('/usr/bin/python'){
                         try{
@@ -59,6 +58,8 @@ node {
                 } 
                 sh "echo \"" + golint + " \" > golint.log"
                 sh "echo \"" + eslint + " \" > eslint.log"
+                sh "echo ${env.logsite}"
+                        
         }
         stage ('test'){
                 sh 'python tests/testem.py'
