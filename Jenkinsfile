@@ -39,7 +39,9 @@ node {
                 }
         }
         stage('lint'){
-                golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
+                sh "echo ${env.logsite}"
+
+                // Lint Python
                 withPythonEnv('/usr/bin/python'){
                         try{
                                 pysh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint  --rcfile=pylintrc.conf > pylint.log').trim()
@@ -47,18 +49,23 @@ node {
                                 slackSend(color: "#FF0000",message: "Linting Python Files on PR#${PULLNUM} Failed!")
                         }
                 }
+
+                // Lint Esx
                 sh "cd mirrorui/"
-                eslint = sh(returnStdout:true, script: 'eslint -c "eslintrc.js" .').trim()
+                try{
+                        sh(returnStdout:true, script: 'eslint -c "eslintrc.js" . > eslint.log').trim()
+                }catch(error){
+                        slackSend(color: "#FF0000",message: "Linting JSX Files on PR#${PULLNUM} Failed!")
+                }
                 sh "cd ../"
+
+                //Lint Go
+                golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
                 if(golint != ""){
                         slackSend(color: "#FF0000",message: "Linting Go Files on PR#${PULLNUM} Failed!")
                 }
-                if(eslint != ""){
-                        slackSend(color: "#FF0000",message: "Linting JSX Files on PR#${PULLNUM} Failed!")
-                } 
                 sh "echo \"" + golint + " \" > golint.log"
-                sh "echo \"" + eslint + " \" > eslint.log"
-                sh "echo ${env.logsite}"
+
                         
         }
         stage ('test'){
