@@ -46,9 +46,8 @@ node {
                 }
                 withPythonEnv('/usr/bin/python'){
                         try{
-                                pylint = pysh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint  --rcfile=pylintrc.conf').trim()
+                                pysh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint  --rcfile=pylintrc.conf > pylint.log').trim()
                         }catch(error){
-                                sh "echo ${pylint}"
                                 slackSend(color: "#FF0000",message: "Linting Python Files on PR#${PULLNUM} Failed!")
                                 WindDown("LINT FAILED")
                         }
