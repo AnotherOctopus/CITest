@@ -1,9 +1,9 @@
 
 def WindDown(errorname){
-        msg = "
-        Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Failed!
-        Find the logs here: http://aberdeen.purdueieee.org:1944/
-        "
+        msg = """
+Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Failed!
+Find the logs here: http://aberdeen.purdueieee.org:1944/
+        """
         slackSend(color: "#FF0000",message: msg)
         error(errorname)
 }
@@ -91,10 +91,11 @@ node {
                 }
         }       
         stage ('post'){
-                msg = "
+                msg = """
 Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!\n
 Check out the logs here http://aberdeen.purdueieee.org:1944/
-Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull"
+Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull
+"""
                 slackSend(color: "#00FF00",message:  msg)
         }
 }
