@@ -1,10 +1,12 @@
 
 def WindDown(errorname){
+        slackSend(color: "#FF0000",message: "Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Failed!\nFind the logs here: http://aberdeen.purdueieee.org:1944/")
         error(errorname)
 }
 node {
         def app
         stage ('setup_virtualenv'){
+                sh "mkdir -p ${env.logsite}/${PULLNUM}"
                 withPythonEnv('/usr/bin/python'){
                     pysh 'pip install pylint'
                 }
@@ -66,13 +68,17 @@ node {
                 }
                 sh "echo \"" + golint + " \" > golint.log"
 
-                        
+                sh "mv pylint.log ${env.logsite}/${PULLNUM}"
+                sh "mv eslint.log ${env.logsite}/${PULLNUM}"
+                sh "mv golint.log ${env.logsite}/${PULLNUM}"
         }
         stage ('test'){
-                sh 'python tests/testem.py'
+                withPythonEnv('/usr/bin/python'){
+                        pysh 'python tests/testem.py'
+                }
         }       
         stage ('post'){
-                slackSend(color: "#00FF00",message: "Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!")
+                slackSend(color: "#00FF00",message: "Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Passed all Tests!\n Check out the logs here http://aberdeen.purdueieee.org:1944/")
                 slackSend(color: "#00FF00",message: "Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull")
         }
 }
