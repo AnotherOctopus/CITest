@@ -43,7 +43,7 @@ node {
                         app.push(env.BRANCH_NAME)
                         sh 'id'
                         sh 'ssh pi@128.46.156.193 \'df -H\''
-                        //sh 'ssh -p 2112 sampi@dhtilly.ddns.net \'docker run anotheroctopus/rovimage:${PULLBRANCH}\''
+                        sh 'ssh pi@128.46.156.193 \'docker -d run anotheroctopus/rovimage:${PULLBRANCH}\''
                 }catch(error){
                         msg = "Launching the ROV failed. Probably some networking nonesense"
                         slackSend(color: "#FF0000",message: msg)
