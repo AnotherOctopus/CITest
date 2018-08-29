@@ -40,7 +40,7 @@ node {
         stage ('launchROV'){
                 try{
                         sh 'docker login -u anotheroctopus -p 44Cobr@'
-                        tag = "${env.BRANCH_NAME}"
+                        tag = "${PULLBRANCH}"
                         app.push(tag)
                         sh "ssh pi@128.46.156.193 \'docker  run -d --name=\"rov\" anotheroctopus/rovimage:${PULLBRANCH}\''"
                 }catch(error){
