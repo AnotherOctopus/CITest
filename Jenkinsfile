@@ -5,7 +5,12 @@ Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Failed!
 Find the logs here: http://aberdeen.purdueieee.org:1944/
         """
         slackSend(color: "#FF0000",message: msg)
+        SendToPi("docker stop rov")
+        SendToPi("docker rm rov")
         error(errorname)
+}
+def SendToPi(cmd){
+        sh """ssh pi@128.46.156.193 \'${cmd}\'"""
 }
 node {
         def app
@@ -42,7 +47,7 @@ node {
                         sh 'docker login -u anotheroctopus -p 44Cobr@'
                         tag = "${PULLBRANCH}"
                         app.push(tag)
-                        sh """ssh pi@128.46.156.193 \'docker  run -d --name=\"rov\" anotheroctopus/rovimage:'${PULLBRANCH}'\'"""
+                        SendToPi("docker  run -d --name=\"rov\" anotheroctopus/rovimage:'${PULLBRANCH}'")
                 }catch(error){
                         msg = "Launching the ROV failed. Probably some networking nonesense"
                         slackSend(color: "#FF0000",message: msg)
