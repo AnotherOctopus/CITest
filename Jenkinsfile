@@ -5,13 +5,28 @@ Pull Request #${PULLNUM}, on branch ${PULLBRANCH} Failed!
 Find the logs here: http://aberdeen.purdueieee.org:1944/
         """
         slackSend(color: "#FF0000",message: msg)
+
+        sendStatus("failure","http://aberdeen.purdueieee.org:1944/",errorname,"continuous-integration/aberdeen")
         SendToPi("docker stop rov")
         SendToPi("docker rm rov")
+
         error(errorname)
 }
+
 def SendToPi(cmd){
         sh """ssh pi@128.46.156.193 \'${cmd}\'"""
 }
+
+def sendStatus(state,target_url,description,context){
+        sh """
+curl --header "Content-Type: application/json" \
+--request POST \
+--data '{"state":"\'${state}\'","target_url":"\'${target_url}\'","description":"\'${description}\'","context": "\'${context}\'"}' \
+https://api.github.com/repos/AnotherOctopus/CITest/statuses/65fbc36128c2e295c25bc5e880ce0c59f0d9f143?access_token=26c95d68cd06d113d5cc644ffffe097968cb8ff4
+
+        """
+}
+
 node {
         def app
         stage ('setup_virtualenv'){
@@ -102,6 +117,9 @@ Check out the logs here http://aberdeen.purdueieee.org:1944/
 Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull
 """
                 slackSend(color: "#00FF00",message:  msg)
+
+                sendStatus("success","http://aberdeen.purdueieee.org:1944/","Everything Passed!","continuous-integration/aberdeen")
+
                 SendToPi("docker stop rov")
                 SendToPi("docker rm rov")
         }
