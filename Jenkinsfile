@@ -40,10 +40,8 @@ node {
         stage ('launchROV'){
                 try{
                         sh 'docker login -u anotheroctopus -p 44Cobr@'
-                        app.push(env.BRANCH_NAME)
-                        sh 'id'
-                        sh 'ssh pi@128.46.156.193 \'df -H\''
-                        sh 'ssh pi@128.46.156.193 \'docker -d run anotheroctopus/rovimage:${PULLBRANCH}\''
+                        app.push("${env.BRANCH_NAME}")
+                        sh "ssh pi@128.46.156.193 \'docker  run -d --name=\"rov\" anotheroctopus/rovimage:${PULLBRANCH}\''"
                 }catch(error){
                         msg = "Launching the ROV failed. Probably some networking nonesense"
                         slackSend(color: "#FF0000",message: msg)
