@@ -102,5 +102,7 @@ Check out the logs here http://aberdeen.purdueieee.org:1944/
 Hey ${PULLMAKER}, you should bug ${REVIEWERS} to approve your pull
 """
                 slackSend(color: "#00FF00",message:  msg)
+                SendToPi("docker stop rov")
+                SendToPi("docker rm rov")
         }
 }
