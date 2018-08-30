@@ -107,8 +107,9 @@ node {
         }
         stage ('test'){
                 withPythonEnv('/usr/bin/python'){
-                        pysh 'python tests/testem.py'
+                        pysh 'python tests/testem.py > runlog.log 2>&1'
                 }
+                sh "mv runlog.log ${env.logsite}/PR#${PULLNUM}"
         }       
         stage ('post'){
                 msg = """
