@@ -22,7 +22,7 @@ def sendStatus(state,target_url,description,context){
 curl --header "Content-Type: application/json" \
 --request POST \
 --data '{"state":"\'${state}\'","target_url":"\'${target_url}\'","description":"\'${description}\'","context": "\'${context}\'"}' \
-https://api.github.com/repos/AnotherOctopus/CITest/statuses/\'${PULLBRANCH}\'?access_token=\'${env.gittoken}\'
+https://api.github.com/repos/AnotherOctopus/CITest/statuses/\'${COMITSHA}\'?access_token=\'${env.gittoken}\'
 
         """
 }
