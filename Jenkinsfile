@@ -30,7 +30,6 @@ https://api.github.com/repos/AnotherOctopus/CITest/statuses/\'${COMITSHA}\'?acce
 node {
         def app
         stage ('setup_virtualenv'){
-		WindDown("fefe")
                 sh "mkdir -p ${env.logsite}/PR#${PULLNUM}"
                 withPythonEnv('/usr/bin/python'){
                     pysh 'pip install pylint'
