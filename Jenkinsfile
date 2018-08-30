@@ -16,6 +16,9 @@ Find the logs here: http://aberdeen.purdueieee.org:1944/
 def SendToPi(cmd){
         sh """ssh pi@128.46.156.193 \'${cmd}\'"""
 }
+def SaveLog(filename){
+        sh "mv ${filename} ${env.logsite}/PR#${PULLNUM}"
+}
 
 def sendStatus(state,target_url,description,context){
         sh """
@@ -29,8 +32,10 @@ https://api.github.com/repos/AnotherOctopus/CITest/statuses/\'${COMITSHA}\'?acce
 
 node {
         def app
-        stage ('setup_virtualenv'){
+        stage ('setupenv'){
                 sh "mkdir -p ${env.logsite}/PR#${PULLNUM}"
+                sh "date > meta.log"
+                SaveLog("meta.log")
                 withPythonEnv('/usr/bin/python'){
                     pysh 'pip install pylint'
                     sh 'rm -r socketIO-client'
@@ -59,7 +64,7 @@ node {
         }
         stage ('launchROV'){
                 try{
-                        sh 'docker login -u anotheroctopus -p 44Cobr@'
+                        sh """docker login -u ${env.dhublogin} -p ${env.dhubpass}"""
                         tag = "${PULLBRANCH}"
                         app.push(tag)
                         SendToPi("docker  run -d --name=\"rov\" anotheroctopus/rovimage:'${PULLBRANCH}'")
@@ -101,15 +106,15 @@ node {
                         slackSend(color: "#FF0000",message: linterrmsg)
                         WindDown("LINTERROR")
                 }
-                sh "mv pylint.log ${env.logsite}/PR#${PULLNUM}"
-                sh "mv eslint.log ${env.logsite}/PR#${PULLNUM}"
-                sh "mv golint.log ${env.logsite}/PR#${PULLNUM}"
+                SaveLog("pylint.log")
+                SaveLog("eslint.log")
+                SaveLog("golint.log")
         }
         stage ('test'){
                 withPythonEnv('/usr/bin/python'){
                         pysh 'python tests/testem.py > runlog.log 2>&1'
                 }
-                sh "mv runlog.log ${env.logsite}/PR#${PULLNUM}"
+                SaveLog("runlog.log")
         }       
         stage ('post'){
                 msg = """
