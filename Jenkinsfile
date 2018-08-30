@@ -22,7 +22,7 @@ def sendStatus(state,target_url,description,context){
 curl --header "Content-Type: application/json" \
 --request POST \
 --data '{"state":"\'${state}\'","target_url":"\'${target_url}\'","description":"\'${description}\'","context": "\'${context}\'"}' \
-https://api.github.com/repos/AnotherOctopus/CITest/statuses/\'${PULLBRANCH}\'?access_token=\'${env.logsite}\'
+https://api.github.com/repos/AnotherOctopus/CITest/statuses/\'${PULLBRANCH}\'?access_token=\'${env.gittoken}\'
 
         """
 }
@@ -30,6 +30,7 @@ https://api.github.com/repos/AnotherOctopus/CITest/statuses/\'${PULLBRANCH}\'?ac
 node {
         def app
         stage ('setup_virtualenv'){
+		WindDown("fefe")
                 sh "mkdir -p ${env.logsite}/PR#${PULLNUM}"
                 withPythonEnv('/usr/bin/python'){
                     pysh 'pip install pylint'
