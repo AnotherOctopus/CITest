@@ -61,6 +61,15 @@ node {
                         slackSend(color: "#FF0000",message: msg)
                         WindDown("BUILD FAILED")
                 }
+                try{    
+			sh "cd surface/"
+			sh "npm install"
+			sh "cd ../"
+                }catch(error){
+                        msg = "Hum, we failed building frontend. IAAAAAAAANNANAN" 
+                        slackSend(color: "#FF0000",message: msg)
+                        WindDown("Frontend  FAILED")
+                }
         }
         stage ('launchROV'){
                 try{
@@ -87,9 +96,6 @@ node {
                 }
 
                 // Lint Esx
-                sh "cd surface/"
-		sh "npm install dev"
-                sh "cd ../"
                 try{
                         sh(returnStdout:true, script: 'eslint -c "eslintrc.js" surface/ > eslint.log').trim()
                 }catch(error){
