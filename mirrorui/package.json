@@ -35,6 +35,5 @@
     "eject": "react-scripts eject",
     "electron": "electron ."
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
