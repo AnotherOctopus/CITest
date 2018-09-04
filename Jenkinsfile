@@ -38,7 +38,7 @@ node {
                 SaveLog("meta.log")
                 withPythonEnv('/usr/bin/python'){
                     pysh 'pip install pylint'
-                    sh 'rm -r socketIO-client'
+                    sh 'rm -rf socketIO-client'
                     sh 'git clone https://github.com/AnotherOctopus/socketIO-client'
                     pysh 'pip install ./socketIO-client/'
                 }
