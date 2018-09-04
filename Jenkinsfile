@@ -88,12 +88,13 @@ node {
 
                 // Lint Esx
                 sh "cd surface/"
+		sh "npm install dev"
+                sh "cd ../"
                 try{
-                        sh(returnStdout:true, script: 'eslint -c "eslintrc.js" . > eslint.log').trim()
+                        sh(returnStdout:true, script: 'eslint -c "eslintrc.js" surface/ > eslint.log').trim()
                 }catch(error){
                         linterrmsg +="Linting JSX Files on PR#${PULLNUM} Failed!\n" 
                 }
-                sh "cd ../"
 
                 //Lint Go
                 try{
