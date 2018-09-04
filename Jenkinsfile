@@ -87,7 +87,7 @@ node {
                 }
 
                 // Lint Esx
-                sh "cd mirrorui/"
+                sh "cd surface/"
                 try{
                         sh(returnStdout:true, script: 'eslint -c "eslintrc.js" . > eslint.log').trim()
                 }catch(error){
