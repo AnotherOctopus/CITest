@@ -267,6 +267,6 @@ func main_camera() {
 func main() {
 	// This works and strip "/static/" fragment from path
 	main_full()
-	//main_camera()
+	main_camera()
 	//main_frontend()
 }
