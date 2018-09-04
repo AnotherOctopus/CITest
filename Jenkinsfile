@@ -62,9 +62,7 @@ node {
                         WindDown("BUILD FAILED")
                 }
                 try{    
-			sh "cd surface/"
-			sh "npm install"
-			sh "cd ../"
+			sh "cd surface/ && npm install"
                 }catch(error){
                         msg = "Hum, we failed building frontend. IAAAAAAAANNANAN" 
                         slackSend(color: "#FF0000",message: msg)
