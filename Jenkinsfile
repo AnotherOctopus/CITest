@@ -96,19 +96,20 @@ node {
                 sh "cd ../"
 
                 //Lint Go
-                golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
-                if(golint != ""){
+                try{
+			golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d > golint.log').trim()
+                }catch(error){
                         linterrmsg +="Linting go Files on PR#${PULLNUM} Failed!\n" 
                 }
-                sh "echo \"" + golint + " \" > golint.log"
+
+                SaveLog("pylint.log")
+                SaveLog("eslint.log")
+                SaveLog("golint.log")
 
                 if(linterrmsg != ""){
                         slackSend(color: "#FF0000",message: linterrmsg)
                         WindDown("LINTERROR")
                 }
-                SaveLog("pylint.log")
-                SaveLog("eslint.log")
-                SaveLog("golint.log")
         }
         stage ('test'){
                 withPythonEnv('/usr/bin/python'){
