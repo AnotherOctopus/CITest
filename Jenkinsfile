@@ -87,7 +87,8 @@ node {
                 // Lint Python
                 withPythonEnv('/usr/bin/python'){
                         try{
-                                pysh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint  --rcfile=pylintrc.conf > pylint.log').trim()
+                                pysh(returnStdout:true, script: 'pylint --rcfile=pylintrc.conf rov/ > pylint.log').trim()
+                                pysh(returnStdout:true, script: 'pylint --rcfile=pylintrc.conf rov/ >> pylint.log').trim()
                         }catch(error){
                                 linterrmsg +="Linting Python Files on PR#${PULLNUM} Failed!\n" 
                         }

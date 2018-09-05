@@ -1,0 +1,935 @@
+************* Module cvDistanceMeasure
+C: 22, 0: Trailing whitespace (trailing-whitespace)
+C: 24, 0: Exactly one space required after comma
+    redThresh = ((52,0,0),(180, 255, 158))
+                    ^ (bad-whitespace)
+C: 24, 0: Exactly one space required after comma
+    redThresh = ((52,0,0),(180, 255, 158))
+                      ^ (bad-whitespace)
+C: 24, 0: Exactly one space required after comma
+    redThresh = ((52,0,0),(180, 255, 158))
+                         ^ (bad-whitespace)
+C: 25, 0: Exactly one space required after comma
+    yellowThresh = ((24,69,154),(79,255,255))
+                       ^ (bad-whitespace)
+C: 25, 0: Exactly one space required after comma
+    yellowThresh = ((24,69,154),(79,255,255))
+                          ^ (bad-whitespace)
+C: 25, 0: Exactly one space required after comma
+    yellowThresh = ((24,69,154),(79,255,255))
+                               ^ (bad-whitespace)
+C: 25, 0: Exactly one space required after comma
+    yellowThresh = ((24,69,154),(79,255,255))
+                                   ^ (bad-whitespace)
+C: 25, 0: Exactly one space required after comma
+    yellowThresh = ((24,69,154),(79,255,255))
+                                       ^ (bad-whitespace)
+C: 32, 0: Exactly one space required after comma
+    kern = np.ones((5,5))*5
+                     ^ (bad-whitespace)
+C: 34, 0: Trailing whitespace (trailing-whitespace)
+C: 40, 0: Exactly one space required after comma
+        temp = cv2.GaussianBlur(temp, (5,5),0)
+                                        ^ (bad-whitespace)
+C: 40, 0: Exactly one space required after comma
+        temp = cv2.GaussianBlur(temp, (5,5),0)
+                                           ^ (bad-whitespace)
+C: 48, 0: Exactly one space required after comma
+    _,contours,_ = cv2.findContours(img2, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+     ^ (bad-whitespace)
+C: 48, 0: Exactly one space required after comma
+    _,contours,_ = cv2.findContours(img2, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+              ^ (bad-whitespace)
+C: 54, 0: Exactly one space required before assignment
+    square  = []
+            ^ (bad-whitespace)
+C: 64, 0: Trailing whitespace (trailing-whitespace)
+C: 67, 0: Trailing whitespace (trailing-whitespace)
+C: 73, 0: Exactly one space required after comma
+    cv2.drawContours(imgColor, [np.array(square)], 0, (255,0,0), 5)
+                                                          ^ (bad-whitespace)
+C: 73, 0: Exactly one space required after comma
+    cv2.drawContours(imgColor, [np.array(square)], 0, (255,0,0), 5)
+                                                            ^ (bad-whitespace)
+C: 87, 0: Exactly one space required after comma
+            sumx = np.sum(c[:,:,0])
+                             ^ (bad-whitespace)
+C: 87, 0: Exactly one space required after comma
+            sumx = np.sum(c[:,:,0])
+                               ^ (bad-whitespace)
+C: 88, 0: Exactly one space required after comma
+            sumy = np.sum(c[:,:,1])
+                             ^ (bad-whitespace)
+C: 88, 0: Exactly one space required after comma
+            sumy = np.sum(c[:,:,1])
+                               ^ (bad-whitespace)
+C: 89, 0: Trailing whitespace (trailing-whitespace)
+C: 89, 0: Exactly one space required after comma
+            coloredMarks.append((int(sumx/len(c)),int(sumy/len(c))))        
+                                                 ^ (bad-whitespace)
+C: 93, 0: Exactly one space required after comma
+    def collinear(p0,p1,p2):
+                    ^ (bad-whitespace)
+C: 93, 0: Exactly one space required after comma
+    def collinear(p0,p1,p2):
+                       ^ (bad-whitespace)
+C: 94, 0: Exactly one space required after comma
+        x1,y1 = p1[0] - p0[0], p1[1] - p0[1]
+          ^ (bad-whitespace)
+C: 95, 0: Exactly one space required after comma
+        x2,y2 = p2[0] - p0[0], p2[1] - p0[1]
+          ^ (bad-whitespace)
+C:100, 0: Trailing whitespace (trailing-whitespace)
+C:101, 0: Trailing whitespace (trailing-whitespace)
+C:102, 0: Trailing whitespace (trailing-whitespace)
+C:114, 0: Exactly one space required after comma
+            if collinear(corner1,corner2,mark):
+                                ^ (bad-whitespace)
+C:114, 0: Exactly one space required after comma
+            if collinear(corner1,corner2,mark):
+                                        ^ (bad-whitespace)
+C:143, 0: Exactly one space required after comma
+def l2Norm(p1,p2):
+             ^ (bad-whitespace)
+C:153, 0: Exactly one space required after comma
+        cv2.putText(imgColor,str(0.0), tuple(start), font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                            ^ (bad-whitespace)
+C:153, 0: Exactly one space required after comma
+        cv2.putText(imgColor,str(0.0), tuple(start), font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                               ^ (bad-whitespace)
+C:153, 0: Exactly one space required after comma
+        cv2.putText(imgColor,str(0.0), tuple(start), font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                  ^ (bad-whitespace)
+C:153, 0: Exactly one space required after comma
+        cv2.putText(imgColor,str(0.0), tuple(start), font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                    ^ (bad-whitespace)
+C:153, 0: Exactly one space required after comma
+        cv2.putText(imgColor,str(0.0), tuple(start), font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                         ^ (bad-whitespace)
+C:153, 0: Exactly one space required after comma
+        cv2.putText(imgColor,str(0.0), tuple(start), font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                           ^ (bad-whitespace)
+C:155, 0: Exactly one space required after comma
+            d = pix2cm(l2Norm(start, point),sideLength)
+                                           ^ (bad-whitespace)
+C:157, 0: Line too long (101/100) (line-too-long)
+C:157, 0: Exactly one space required after comma
+            cv2.putText(imgColor,str(round(d,1) + offset), point, font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                ^ (bad-whitespace)
+C:157, 0: Exactly one space required after comma
+            cv2.putText(imgColor,str(round(d,1) + offset), point, font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                            ^ (bad-whitespace)
+C:157, 0: Exactly one space required after comma
+            cv2.putText(imgColor,str(round(d,1) + offset), point, font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                            ^ (bad-whitespace)
+C:157, 0: Exactly one space required after comma
+            cv2.putText(imgColor,str(round(d,1) + offset), point, font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                               ^ (bad-whitespace)
+C:157, 0: Exactly one space required after comma
+            cv2.putText(imgColor,str(round(d,1) + offset), point, font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                                 ^ (bad-whitespace)
+C:157, 0: Exactly one space required after comma
+            cv2.putText(imgColor,str(round(d,1) + offset), point, font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                                      ^ (bad-whitespace)
+C:157, 0: Exactly one space required after comma
+            cv2.putText(imgColor,str(round(d,1) + offset), point, font, 0.75,(0,0,255),2,cv2.LINE_AA)
+                                                                                        ^ (bad-whitespace)
+C:162, 0: Trailing whitespace (trailing-whitespace)
+C:180, 0: Exactly one space required after comma
+        for x,cnt in filteredPoints.items():
+             ^ (bad-whitespace)
+C:190, 0: Exactly one space required after comma
+            for x,cnt in filteredPoints.items():
+                 ^ (bad-whitespace)
+C:191, 0: Exactly one space required after comma
+                if l2Norm(x,p) < thresh and not done:
+                           ^ (bad-whitespace)
+C:202, 0: Exactly one space required after comma
+        drawPoints = [x for x,cnt in filteredPoints.items() if cnt > minCnt]
+                             ^ (bad-whitespace)
+C:206, 0: Trailing whitespace (trailing-whitespace)
+C:213, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Module name "cvDistanceMeasure" doesn't conform to snake_case naming style (invalid-name)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  4, 0: Unable to import 'cv2' (import-error)
+E:  5, 0: Unable to import 'numpy' (import-error)
+W: 10, 0: Wildcard import UndistortFisheye (wildcard-import)
+W: 14,18: Redefining name 'imgColor' from outer scope (line 178) (redefined-outer-name)
+W: 18, 4: Redefining name 'img' from outer scope (line 10) (redefined-outer-name)
+W: 36, 8: Redefining name 'thresh' from outer scope (line 171) (redefined-outer-name)
+W:105, 4: Redefining name 'maxCnt' from outer scope (line 172) (redefined-outer-name)
+W:108, 8: Redefining name 'i' from outer scope (line 165) (redefined-outer-name)
+C: 14, 0: Function name "calcDistances" doesn't conform to snake_case naming style (invalid-name)
+C: 14, 0: Argument name "imgColor" doesn't conform to snake_case naming style (invalid-name)
+C: 14, 0: Missing function docstring (missing-docstring)
+R: 14, 0: Too many local variables (30/15) (too-many-locals)
+C: 55, 8: Variable name "c" doesn't conform to camelCase naming style (invalid-name)
+C: 79, 8: Variable name "c" doesn't conform to camelCase naming style (invalid-name)
+C: 93, 4: Argument name "p0" doesn't conform to snake_case naming style (invalid-name)
+C: 93, 4: Argument name "p1" doesn't conform to snake_case naming style (invalid-name)
+C: 93, 4: Argument name "p2" doesn't conform to snake_case naming style (invalid-name)
+C: 93, 4: Missing function docstring (missing-docstring)
+C: 94, 8: Variable name "x1" doesn't conform to camelCase naming style (invalid-name)
+C: 94,11: Variable name "y1" doesn't conform to camelCase naming style (invalid-name)
+C: 95, 8: Variable name "x2" doesn't conform to camelCase naming style (invalid-name)
+C: 95,11: Variable name "y2" doesn't conform to camelCase naming style (invalid-name)
+C:108, 4: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+R: 14, 0: Too many branches (13/12) (too-many-branches)
+C:136, 0: Argument name "pixDist" doesn't conform to snake_case naming style (invalid-name)
+C:136, 0: Argument name "sideLength" doesn't conform to snake_case naming style (invalid-name)
+C:136, 0: Missing function docstring (missing-docstring)
+R:137, 4: Unnecessary "else" after "return" (no-else-return)
+C:143, 0: Function name "l2Norm" doesn't conform to snake_case naming style (invalid-name)
+C:143, 0: Argument name "p1" doesn't conform to snake_case naming style (invalid-name)
+C:143, 0: Argument name "p2" doesn't conform to snake_case naming style (invalid-name)
+C:143, 0: Missing function docstring (missing-docstring)
+W:147,37: Redefining name 'imgColor' from outer scope (line 178) (redefined-outer-name)
+W:147,21: Redefining name 'filteredPoints' from outer scope (line 166) (redefined-outer-name)
+C:147, 0: Function name "drawDists" doesn't conform to snake_case naming style (invalid-name)
+C:147, 0: Argument name "filteredPoints" doesn't conform to snake_case naming style (invalid-name)
+C:147, 0: Argument name "imgColor" doesn't conform to snake_case naming style (invalid-name)
+C:147, 0: Argument name "sideLength" doesn't conform to snake_case naming style (invalid-name)
+C:147, 0: Missing function docstring (missing-docstring)
+C:155,12: Variable name "d" doesn't conform to camelCase naming style (invalid-name)
+W:  2, 0: Unused import subprocess (unused-import)
+W:  3, 0: Unused import io (unused-import)
+W:  8, 0: Unused Process imported from multiprocessing (unused-import)
+W:  8, 0: Unused Pool imported from multiprocessing (unused-import)
+W:  9, 0: Unused import time (unused-import)
+W: 10, 0: Unused import compare from wildcard import (unused-wildcard-import)
+W: 10, 0: Unused import img from wildcard import (unused-wildcard-import)
+W: 10, 0: Unused import undistortedImg from wildcard import (unused-wildcard-import)
+W: 10, 0: Unused import json from wildcard import (unused-wildcard-import)
+C:  6, 0: standard import "from signal import signal, SIGPIPE, SIG_DFL" should be placed before "import cv2" (wrong-import-order)
+C:  8, 0: standard import "from multiprocessing import Process, Pool" should be placed before "import cv2" (wrong-import-order)
+C:  9, 0: standard import "import time" should be placed before "import cv2" (wrong-import-order)
+************* Module cvTailClassify
+W: 37, 0: TODO check if it is a rectangle or a triangle (fixme)
+C: 19, 0: Exactly one space required after comma
+        redThresh = ((0,127,122),(4, 250, 180))
+                       ^ (bad-whitespace)
+C: 19, 0: Exactly one space required after comma
+        redThresh = ((0,127,122),(4, 250, 180))
+                           ^ (bad-whitespace)
+C: 19, 0: Exactly one space required after comma
+        redThresh = ((0,127,122),(4, 250, 180))
+                                ^ (bad-whitespace)
+C: 20, 0: Exactly one space required after assignment
+        yellowThresh =((25,40,50), (30,255,255))
+                     ^ (bad-whitespace)
+C: 20, 0: Exactly one space required after comma
+        yellowThresh =((25,40,50), (30,255,255))
+                          ^ (bad-whitespace)
+C: 20, 0: Exactly one space required after comma
+        yellowThresh =((25,40,50), (30,255,255))
+                             ^ (bad-whitespace)
+C: 20, 0: Exactly one space required after comma
+        yellowThresh =((25,40,50), (30,255,255))
+                                      ^ (bad-whitespace)
+C: 20, 0: Exactly one space required after comma
+        yellowThresh =((25,40,50), (30,255,255))
+                                          ^ (bad-whitespace)
+C: 21, 0: Exactly one space required after comma
+        blueThresh = ((105,50,25),(120,255,255))
+                          ^ (bad-whitespace)
+C: 21, 0: Exactly one space required after comma
+        blueThresh = ((105,50,25),(120,255,255))
+                             ^ (bad-whitespace)
+C: 21, 0: Exactly one space required after comma
+        blueThresh = ((105,50,25),(120,255,255))
+                                 ^ (bad-whitespace)
+C: 21, 0: Exactly one space required after comma
+        blueThresh = ((105,50,25),(120,255,255))
+                                      ^ (bad-whitespace)
+C: 21, 0: Exactly one space required after comma
+        blueThresh = ((105,50,25),(120,255,255))
+                                          ^ (bad-whitespace)
+C: 28, 0: Exactly one space required after comma
+            img2 = cv2.inRange(img,*thresh)
+                                  ^ (bad-whitespace)
+C: 29, 0: Exactly one space required after comma
+            kern = np.ones((3,3))*3 # Maybe erode this to remove point noise
+                             ^ (bad-whitespace)
+C: 32, 0: Exactly one space required after comma
+            _,contours,_ = cv2.findContours(img2, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+             ^ (bad-whitespace)
+C: 32, 0: Exactly one space required after comma
+            _,contours,_ = cv2.findContours(img2, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                      ^ (bad-whitespace)
+C: 43, 0: Exactly one space required after assignment
+        maxArea =0
+                ^ (bad-whitespace)
+C: 45, 0: Exactly one space required after comma
+        for i,c in enumerate(all_contours):
+             ^ (bad-whitespace)
+C: 54, 0: Exactly one space required after comma
+        colors = ((0,0,255), (0,255,255), (255,0,0))
+                    ^ (bad-whitespace)
+C: 54, 0: Exactly one space required after comma
+        colors = ((0,0,255), (0,255,255), (255,0,0))
+                      ^ (bad-whitespace)
+C: 54, 0: Exactly one space required after comma
+        colors = ((0,0,255), (0,255,255), (255,0,0))
+                               ^ (bad-whitespace)
+C: 54, 0: Exactly one space required after comma
+        colors = ((0,0,255), (0,255,255), (255,0,0))
+                                   ^ (bad-whitespace)
+C: 54, 0: Exactly one space required after comma
+        colors = ((0,0,255), (0,255,255), (255,0,0))
+                                              ^ (bad-whitespace)
+C: 54, 0: Exactly one space required after comma
+        colors = ((0,0,255), (0,255,255), (255,0,0))
+                                                ^ (bad-whitespace)
+C: 55, 0: Line too long (114/100) (line-too-long)
+C: 64, 0: Exactly one space required after comma
+        pushframe(curimage,2)
+                          ^ (bad-whitespace)
+C: 65, 0: Exactly one space required after comma
+        pushdata(data,2)
+                     ^ (bad-whitespace)
+C:  1, 0: Module name "cvTailClassify" doesn't conform to snake_case naming style (invalid-name)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  5, 0: Unable to import 'cv2' (import-error)
+E:  6, 0: Unable to import 'numpy' (import-error)
+C: 33,15: Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+C: 46,15: Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+W:  3, 0: Unused import subprocess (unused-import)
+W:  4, 0: Unused import io (unused-import)
+W:  9, 0: Unused Process imported from multiprocessing (unused-import)
+W:  9, 0: Unused Pool imported from multiprocessing (unused-import)
+W: 10, 0: Unused import time (unused-import)
+C:  7, 0: standard import "from signal import signal, SIGPIPE, SIG_DFL" should be placed before "import cv2" (wrong-import-order)
+C:  9, 0: standard import "from multiprocessing import Process, Pool" should be placed before "import cv2" (wrong-import-order)
+C: 10, 0: standard import "import time" should be placed before "import cv2" (wrong-import-order)
+************* Module cvTurbineDistance
+C: 17, 0: Exactly one space required after comma
+        data = {"Distances": [41,42,43,44,45]}
+                                ^ (bad-whitespace)
+C: 17, 0: Exactly one space required after comma
+        data = {"Distances": [41,42,43,44,45]}
+                                   ^ (bad-whitespace)
+C: 17, 0: Exactly one space required after comma
+        data = {"Distances": [41,42,43,44,45]}
+                                      ^ (bad-whitespace)
+C: 17, 0: Exactly one space required after comma
+        data = {"Distances": [41,42,43,44,45]}
+                                         ^ (bad-whitespace)
+C: 18, 0: Exactly one space required after comma
+        pushframe(curimage,3)
+                          ^ (bad-whitespace)
+C: 19, 0: Exactly one space required after comma
+        pushdata(data,3)
+                     ^ (bad-whitespace)
+C:  1, 0: Module name "cvTurbineDistance" doesn't conform to snake_case naming style (invalid-name)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  5, 0: Unable to import 'cv2' (import-error)
+E:  6, 0: Unable to import 'numpy' (import-error)
+W:  3, 0: Unused import subprocess (unused-import)
+W:  4, 0: Unused import io (unused-import)
+W:  5, 0: Unused import cv2 (unused-import)
+W:  6, 0: Unused numpy imported as np (unused-import)
+W:  9, 0: Unused Process imported from multiprocessing (unused-import)
+W:  9, 0: Unused Pool imported from multiprocessing (unused-import)
+W: 10, 0: Unused import time (unused-import)
+C:  7, 0: standard import "from signal import signal, SIGPIPE, SIG_DFL" should be placed before "import cv2" (wrong-import-order)
+C:  9, 0: standard import "from multiprocessing import Process, Pool" should be placed before "import cv2" (wrong-import-order)
+C: 10, 0: standard import "import time" should be placed before "import cv2" (wrong-import-order)
+************* Module UndistortFisheye
+C:  6, 0: Trailing whitespace (trailing-whitespace)
+C: 11, 0: Exactly one space required after comma
+    with open("calib.json","r") as f:
+                          ^ (bad-whitespace)
+C: 15, 0: Exactly one space required after comma
+    m1, m2 = cv2.fisheye.initUndistortRectifyMap(K,D,np.eye(3),K,img.shape[:2][::-1],cv2.CV_16SC2)
+                                                  ^ (bad-whitespace)
+C: 15, 0: Exactly one space required after comma
+    m1, m2 = cv2.fisheye.initUndistortRectifyMap(K,D,np.eye(3),K,img.shape[:2][::-1],cv2.CV_16SC2)
+                                                    ^ (bad-whitespace)
+C: 15, 0: Exactly one space required after comma
+    m1, m2 = cv2.fisheye.initUndistortRectifyMap(K,D,np.eye(3),K,img.shape[:2][::-1],cv2.CV_16SC2)
+                                                              ^ (bad-whitespace)
+C: 15, 0: Exactly one space required after comma
+    m1, m2 = cv2.fisheye.initUndistortRectifyMap(K,D,np.eye(3),K,img.shape[:2][::-1],cv2.CV_16SC2)
+                                                                ^ (bad-whitespace)
+C: 15, 0: Exactly one space required after comma
+    m1, m2 = cv2.fisheye.initUndistortRectifyMap(K,D,np.eye(3),K,img.shape[:2][::-1],cv2.CV_16SC2)
+                                                                                    ^ (bad-whitespace)
+C: 16, 0: Line too long (103/100) (line-too-long)
+C: 16, 0: Exactly one space required after comma
+    undistortedImg = cv2.remap(img,m1,m2,interpolation=cv2.INTER_LINEAR,borderMode=cv2.BORDER_CONSTANT)
+                                  ^ (bad-whitespace)
+C: 16, 0: Exactly one space required after comma
+    undistortedImg = cv2.remap(img,m1,m2,interpolation=cv2.INTER_LINEAR,borderMode=cv2.BORDER_CONSTANT)
+                                     ^ (bad-whitespace)
+C: 16, 0: Exactly one space required after comma
+    undistortedImg = cv2.remap(img,m1,m2,interpolation=cv2.INTER_LINEAR,borderMode=cv2.BORDER_CONSTANT)
+                                        ^ (bad-whitespace)
+C: 16, 0: Exactly one space required after comma
+    undistortedImg = cv2.remap(img,m1,m2,interpolation=cv2.INTER_LINEAR,borderMode=cv2.BORDER_CONSTANT)
+                                                                       ^ (bad-whitespace)
+C: 22, 0: Exactly one space required after comma
+    compare = np.hstack((img,undistortedImg))
+                            ^ (bad-whitespace)
+C: 23, 0: Exactly one space required after comma
+    cv2.imshow("undistort",compare)
+                          ^ (bad-whitespace)
+C: 25, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Module name "UndistortFisheye" doesn't conform to snake_case naming style (invalid-name)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  1, 0: Unable to import 'numpy' (import-error)
+E:  2, 0: Unable to import 'cv2' (import-error)
+W: 10,21: Redefining name 'img' from outer scope (line 20) (redefined-outer-name)
+W: 16, 4: Redefining name 'undistortedImg' from outer scope (line 21) (redefined-outer-name)
+C: 10, 0: Function name "undistortFisheye" doesn't conform to snake_case naming style (invalid-name)
+C: 10, 0: Missing function docstring (missing-docstring)
+C: 11,35: Variable name "f" doesn't conform to camelCase naming style (invalid-name)
+C: 13, 4: Variable name "K" doesn't conform to camelCase naming style (invalid-name)
+C: 14, 4: Variable name "D" doesn't conform to camelCase naming style (invalid-name)
+C: 15, 4: Variable name "m1" doesn't conform to camelCase naming style (invalid-name)
+C: 15, 8: Variable name "m2" doesn't conform to camelCase naming style (invalid-name)
+C:  3, 0: standard import "import json" should be placed before "import numpy as np" (wrong-import-order)
+************* Module cvSimulate
+C: 12, 0: Line too long (147/100) (line-too-long)
+C: 17, 0: Line too long (101/100) (line-too-long)
+C: 20, 0: Exactly one space required after comma
+        pushframe(curimage,1)
+                          ^ (bad-whitespace)
+C: 21, 0: Exactly one space required after comma
+        pushdata(data,1)
+                     ^ (bad-whitespace)
+C:  1, 0: Module name "cvSimulate" doesn't conform to snake_case naming style (invalid-name)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  4, 0: Unable to import 'cv2' (import-error)
+E:  5, 0: Unable to import 'numpy' (import-error)
+W:  2, 0: Unused import subprocess (unused-import)
+W:  3, 0: Unused import io (unused-import)
+W:  5, 0: Unused numpy imported as np (unused-import)
+W:  7, 0: Unused get_image imported from CVhandles (unused-import)
+W:  8, 0: Unused Process imported from multiprocessing (unused-import)
+W:  8, 0: Unused Pool imported from multiprocessing (unused-import)
+C:  6, 0: standard import "from signal import signal, SIGPIPE, SIG_DFL" should be placed before "import cv2" (wrong-import-order)
+C:  8, 0: standard import "from multiprocessing import Process, Pool" should be placed before "import cv2" (wrong-import-order)
+C:  9, 0: standard import "import time" should be placed before "import cv2" (wrong-import-order)
+************* Module handles
+C: 10, 0: Exactly one space required around assignment
+MJPGPORT=8080
+        ^ (bad-whitespace)
+C: 11, 0: Exactly one space required around assignment
+ROVIP="localhost"
+     ^ (bad-whitespace)
+C: 16, 0: Exactly one space required after comma
+    imreq = subprocess.check_output(["tcptostdin",str(MJPGPORT),str(camnum),ROVIP])
+                                                 ^ (bad-whitespace)
+C: 16, 0: Exactly one space required after comma
+    imreq = subprocess.check_output(["tcptostdin",str(MJPGPORT),str(camnum),ROVIP])
+                                                               ^ (bad-whitespace)
+C: 16, 0: Exactly one space required after comma
+    imreq = subprocess.check_output(["tcptostdin",str(MJPGPORT),str(camnum),ROVIP])
+                                                                           ^ (bad-whitespace)
+C: 22, 0: Exactly one space required after comma
+def getframe(port,camnum):
+                 ^ (bad-whitespace)
+C: 29, 0: Exactly one space required after comma
+def pushframe(image,ID):
+                   ^ (bad-whitespace)
+C: 58, 0: Exactly one space required after comma
+    p = Process(target=push, args=(data,port))
+                                       ^ (bad-whitespace)
+C: 62, 0: Exactly one space required after comma
+def writeimage(name,data):
+                   ^ (bad-whitespace)
+C: 65, 0: Trailing newlines (trailing-newlines)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  3, 0: Unable to import 'cv2' (import-error)
+E:  4, 0: Unable to import 'numpy' (import-error)
+C: 14, 0: Missing function docstring (missing-docstring)
+W: 15, 4: Unused variable 'port' (unused-variable)
+C: 22, 0: Missing function docstring (missing-docstring)
+C: 24, 4: Variable name "p" doesn't conform to camelCase naming style (invalid-name)
+W: 22,18: Unused argument 'camnum' (unused-argument)
+W: 22,13: Unused argument 'port' (unused-argument)
+C: 29, 0: Argument name "ID" doesn't conform to snake_case naming style (invalid-name)
+C: 29, 0: Missing function docstring (missing-docstring)
+C: 31, 4: Missing function docstring (missing-docstring)
+C: 41, 4: Variable name "p" doesn't conform to camelCase naming style (invalid-name)
+C: 45, 0: Argument name "ID" doesn't conform to snake_case naming style (invalid-name)
+C: 45, 0: Missing function docstring (missing-docstring)
+C: 47, 4: Argument name "da" doesn't conform to snake_case naming style (invalid-name)
+C: 47, 4: Missing function docstring (missing-docstring)
+C: 49, 8: Variable name "d" doesn't conform to camelCase naming style (invalid-name)
+C: 58, 4: Variable name "p" doesn't conform to camelCase naming style (invalid-name)
+C: 62, 0: Missing function docstring (missing-docstring)
+C: 63,66: Variable name "fh" doesn't conform to camelCase naming style (invalid-name)
+W:  8, 0: Unused import time (unused-import)
+C:  5, 0: standard import "from signal import signal, SIGPIPE, SIG_DFL" should be placed before "import cv2" (wrong-import-order)
+C:  6, 0: standard import "from multiprocessing import Process, Pool" should be placed before "import cv2" (wrong-import-order)
+C:  7, 0: standard import "from json import dumps" should be placed before "import cv2" (wrong-import-order)
+C:  8, 0: standard import "import time" should be placed before "import cv2" (wrong-import-order)
+************* Module CcvSimulate
+C: 41, 0: Exactly one space required after comma
+def writeimage(name,data):
+                   ^ (bad-whitespace)
+C:  1, 0: Module name "CcvSimulate" doesn't conform to snake_case naming style (invalid-name)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  3, 0: Unable to import 'cv2' (import-error)
+E:  4, 0: Unable to import 'numpy' (import-error)
+C: 11, 0: Missing function docstring (missing-docstring)
+C: 18, 0: Missing function docstring (missing-docstring)
+C: 20, 4: Variable name "p" doesn't conform to camelCase naming style (invalid-name)
+C: 25, 0: Missing function docstring (missing-docstring)
+C: 26, 4: Missing function docstring (missing-docstring)
+C: 36, 4: Variable name "p" doesn't conform to camelCase naming style (invalid-name)
+C: 41, 0: Missing function docstring (missing-docstring)
+C: 42,66: Variable name "fh" doesn't conform to camelCase naming style (invalid-name)
+C:  5, 0: standard import "from signal import signal, SIGPIPE, SIG_DFL" should be placed before "import cv2" (wrong-import-order)
+C:  6, 0: standard import "from multiprocessing import Process, Pool" should be placed before "import cv2" (wrong-import-order)
+C:  7, 0: standard import "import time" should be placed before "import cv2" (wrong-import-order)
+************* Module JsonLogparser
+C: 11, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C: 13, 0: Line too long (121/100) (line-too-long)
+C: 14, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C: 38, 0: Exactly one space required after comma
+def getTimeIndex(dic,from_t,to_t):
+                    ^ (bad-whitespace)
+C: 38, 0: Exactly one space required after comma
+def getTimeIndex(dic,from_t,to_t):
+                           ^ (bad-whitespace)
+C: 44, 0: Unnecessary parens after 'while' keyword (superfluous-parens)
+C: 45, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 46, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 46, 0: Exactly one space required around comparison
+            if (i!=0):
+                 ^^ (bad-whitespace)
+C: 55, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 55, 0: Exactly one space required around comparison
+    if (dic[len(dic)-1]["last_update"]==to_t):
+                                      ^^ (bad-whitespace)
+C: 58, 0: Unnecessary parens after 'while' keyword (superfluous-parens)
+C: 59, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 60, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 70, 0: Exactly one space required after comma
+def printPlot(dic, key, key2, label, starttime, endtime,all,indexes):
+                                                       ^ (bad-whitespace)
+C: 70, 0: Exactly one space required after comma
+def printPlot(dic, key, key2, label, starttime, endtime,all,indexes):
+                                                           ^ (bad-whitespace)
+C: 72, 0: Unnecessary parens after 'while' keyword (superfluous-parens)
+C: 73, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 75, 0: No space allowed before :
+        else :
+             ^ (bad-whitespace)
+C: 80, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 86, 0: Exactly one space required after comma
+                pp.plot(array[i],label="Thruster " + str(i))
+                                ^ (bad-whitespace)
+C: 88, 0: Line too long (101/100) (line-too-long)
+C: 88, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C: 92, 0: Wrong continued indentation (remove 1 space).
+               ncol=4, mode="expand", borderaxespad=0.)
+              |^ (bad-continuation)
+C: 99, 0: No space allowed after bracket
+def print1dim( dic, key, label, starttime, endtime):
+             ^ (bad-whitespace)
+C:101, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:103, 0: Unnecessary parens after 'while' keyword (superfluous-parens)
+C:104, 0: Exactly one space required after comma
+        print (dic[starttime]["last_update"]," : ",dic[starttime][key])
+                                            ^ (bad-whitespace)
+C:104, 0: Exactly one space required after comma
+        print (dic[starttime]["last_update"]," : ",dic[starttime][key])
+                                                  ^ (bad-whitespace)
+C:111, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:113, 0: Unnecessary parens after 'while' keyword (superfluous-parens)
+C:114, 0: Exactly one space required after comma
+        print (dic[starttime]["last_update"]," : ",dic[starttime][key][key2])
+                                            ^ (bad-whitespace)
+C:114, 0: Exactly one space required after comma
+        print (dic[starttime]["last_update"]," : ",dic[starttime][key][key2])
+                                                  ^ (bad-whitespace)
+C:125, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:131, 0: Line too long (105/100) (line-too-long)
+C:151, 0: Exactly one space required after comma
+    parser.add_argument("-t", action='store_true',help="Prints out the times for all the logs")
+                                                 ^ (bad-whitespace)
+C:152, 0: Line too long (117/100) (line-too-long)
+C:166, 0: Line too long (110/100) (line-too-long)
+C:166, 0: No space allowed before comma
+    parser.add_argument("-thruster" ,action='store_true', help="Prints out all the contents in the thrusters")
+                                    ^ (bad-whitespace)
+C:166, 0: Exactly one space required after comma
+    parser.add_argument("-thruster" ,action='store_true', help="Prints out all the contents in the thrusters")
+                                    ^ (bad-whitespace)
+C:167, 0: Line too long (108/100) (line-too-long)
+C:168, 0: Line too long (105/100) (line-too-long)
+C:171, 0: Exactly one space required after comma
+    parser.add_argument("-IMU",action='store_true', help="Prints out the logs for dearflask")
+                              ^ (bad-whitespace)
+C:191, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:201, 0: Line too long (115/100) (line-too-long)
+C:201, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:204, 0: Line too long (129/100) (line-too-long)
+C:219, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:222, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:225, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:227, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:231, 0: Exactly one space required after comma
+            strin = strin.replace(" ","")
+                                     ^ (bad-whitespace)
+C:234, 0: No space allowed before :
+                try :
+                    ^ (bad-whitespace)
+W:237, 0: Unnecessary semicolon (unnecessary-semicolon)
+C:243, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:252, 0: Trailing whitespace (trailing-whitespace)
+C:253, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:254, 0: Exactly one space required after assignment
+        check =1
+              ^ (bad-whitespace)
+C:255, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:256, 0: Line too long (145/100) (line-too-long)
+C:256, 0: Exactly one space required after comma
+            print("Time Format: DD_HH_MIN_SEC_USEC \nstart time: ",data[0]["last_update"]+ '\n' + "end time: ",data[len(data)-1]["last_update"] )
+                                                                  ^ (bad-whitespace)
+C:256, 0: Exactly one space required after comma
+            print("Time Format: DD_HH_MIN_SEC_USEC \nstart time: ",data[0]["last_update"]+ '\n' + "end time: ",data[len(data)-1]["last_update"] )
+                                                                                                              ^ (bad-whitespace)
+C:256, 0: No space allowed before bracket
+            print("Time Format: DD_HH_MIN_SEC_USEC \nstart time: ",data[0]["last_update"]+ '\n' + "end time: ",data[len(data)-1]["last_update"] )
+                                                                                                                                                ^ (bad-whitespace)
+C:258, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:259, 0: Exactly one space required after comma
+            print1dim(data,'thrusters','Thrusters',fromtime,totime)
+                          ^ (bad-whitespace)
+C:259, 0: Exactly one space required after comma
+            print1dim(data,'thrusters','Thrusters',fromtime,totime)
+                                      ^ (bad-whitespace)
+C:259, 0: Exactly one space required after comma
+            print1dim(data,'thrusters','Thrusters',fromtime,totime)
+                                                  ^ (bad-whitespace)
+C:259, 0: Exactly one space required after comma
+            print1dim(data,'thrusters','Thrusters',fromtime,totime)
+                                                           ^ (bad-whitespace)
+C:261, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:262, 0: Exactly one space required after comma
+            print2dim(data, 'thrusters','desired_thrust', 'Desired Thrusters', fromtime, totime)
+                                       ^ (bad-whitespace)
+C:263, 0: Line too long (120/100) (line-too-long)
+C:263, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','desired_thrust', 'Desired Thrusters', fromtime, totime,printallplots,plotarray)
+                                       ^ (bad-whitespace)
+C:263, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','desired_thrust', 'Desired Thrusters', fromtime, totime,printallplots,plotarray)
+                                                                                               ^ (bad-whitespace)
+C:263, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','desired_thrust', 'Desired Thrusters', fromtime, totime,printallplots,plotarray)
+                                                                                                             ^ (bad-whitespace)
+C:265, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:266, 0: Line too long (101/100) (line-too-long)
+C:266, 0: Exactly one space required after comma
+            print2dim(data, 'thrusters','disabled_thrusters', 'Disabled thrusters', fromtime, totime)
+                                       ^ (bad-whitespace)
+C:267, 0: Line too long (125/100) (line-too-long)
+C:267, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','disabled_thrusters', 'Disabled thrusters', fromtime, totime,printallplots,plotarray)
+                                       ^ (bad-whitespace)
+C:267, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','disabled_thrusters', 'Disabled thrusters', fromtime, totime,printallplots,plotarray)
+                                                                                                    ^ (bad-whitespace)
+C:267, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','disabled_thrusters', 'Disabled thrusters', fromtime, totime,printallplots,plotarray)
+                                                                                                                  ^ (bad-whitespace)
+C:270, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:271, 0: Exactly one space required after comma
+            print2dim(data, 'thrusters','thruster_scales', 'Thruster scales', fromtime, totime)
+                                       ^ (bad-whitespace)
+C:272, 0: Line too long (119/100) (line-too-long)
+C:272, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','thruster_scales', 'Thruster scales', fromtime, totime,printallplots,plotarray)
+                                       ^ (bad-whitespace)
+C:272, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','thruster_scales', 'Thruster scales', fromtime, totime,printallplots,plotarray)
+                                                                                              ^ (bad-whitespace)
+C:272, 0: Exactly one space required after comma
+            printPlot(data, 'thrusters','thruster_scales', 'Thruster scales', fromtime, totime,printallplots,plotarray)
+                                                                                                            ^ (bad-whitespace)
+C:274, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:275, 0: Exactly one space required after comma
+            print2dim(data, 'thrusters','frozen', 'Frozen', fromtime, totime)
+                                       ^ (bad-whitespace)
+C:276, 0: Line too long (104/100) (line-too-long)
+C:278, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:279, 0: Exactly one space required after comma
+            print1dim(data,'claw','Claw',fromtime,totime)
+                          ^ (bad-whitespace)
+C:279, 0: Exactly one space required after comma
+            print1dim(data,'claw','Claw',fromtime,totime)
+                                 ^ (bad-whitespace)
+C:279, 0: Exactly one space required after comma
+            print1dim(data,'claw','Claw',fromtime,totime)
+                                        ^ (bad-whitespace)
+C:279, 0: Exactly one space required after comma
+            print1dim(data,'claw','Claw',fromtime,totime)
+                                                 ^ (bad-whitespace)
+C:281, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:282, 0: Exactly one space required after comma
+            print2dim(data, 'claw','power', 'Claw: Power', fromtime, totime)
+                                  ^ (bad-whitespace)
+C:284, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:285, 0: Exactly one space required after comma
+            print1dim(data,'leds','LED\'s',fromtime,totime)
+                          ^ (bad-whitespace)
+C:285, 0: Exactly one space required after comma
+            print1dim(data,'leds','LED\'s',fromtime,totime)
+                                 ^ (bad-whitespace)
+C:285, 0: Exactly one space required after comma
+            print1dim(data,'leds','LED\'s',fromtime,totime)
+                                          ^ (bad-whitespace)
+C:285, 0: Exactly one space required after comma
+            print1dim(data,'leds','LED\'s',fromtime,totime)
+                                                   ^ (bad-whitespace)
+C:287, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:288, 0: Exactly one space required after comma
+            print2dim(data, 'leds','camera_leds', 'LED : Camera LED', fromtime, totime)
+                                  ^ (bad-whitespace)
+C:290, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:291, 0: Exactly one space required after comma
+            print2dim(data, 'leds','bluetooth_led', 'LED: Bluetooth LED', fromtime, totime)
+                                  ^ (bad-whitespace)
+C:293, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:294, 0: Exactly one space required after comma
+            print1dim(data,'cameras','Camera',fromtime,totime)
+                          ^ (bad-whitespace)
+C:294, 0: Exactly one space required after comma
+            print1dim(data,'cameras','Camera',fromtime,totime)
+                                    ^ (bad-whitespace)
+C:294, 0: Exactly one space required after comma
+            print1dim(data,'cameras','Camera',fromtime,totime)
+                                             ^ (bad-whitespace)
+C:294, 0: Exactly one space required after comma
+            print1dim(data,'cameras','Camera',fromtime,totime)
+                                                      ^ (bad-whitespace)
+C:296, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:297, 0: Exactly one space required after assignment
+        check =1
+              ^ (bad-whitespace)
+C:298, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:299, 0: Line too long (145/100) (line-too-long)
+C:299, 0: Exactly one space required after comma
+            print("Time Format: DD_HH_MIN_SEC_USEC \nstart time: ",data[0]["last_update"]+ '\n' + "end time: ",data[len(data)-1]["last_update"] )
+                                                                  ^ (bad-whitespace)
+C:299, 0: Exactly one space required after comma
+            print("Time Format: DD_HH_MIN_SEC_USEC \nstart time: ",data[0]["last_update"]+ '\n' + "end time: ",data[len(data)-1]["last_update"] )
+                                                                                                              ^ (bad-whitespace)
+C:299, 0: No space allowed before bracket
+            print("Time Format: DD_HH_MIN_SEC_USEC \nstart time: ",data[0]["last_update"]+ '\n' + "end time: ",data[len(data)-1]["last_update"] )
+                                                                                                                                                ^ (bad-whitespace)
+C:301, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:302, 0: Exactly one space required after comma
+            print1dim(data,'thrusters','Thrusters',fromtime,totime)
+                          ^ (bad-whitespace)
+C:302, 0: Exactly one space required after comma
+            print1dim(data,'thrusters','Thrusters',fromtime,totime)
+                                      ^ (bad-whitespace)
+C:302, 0: Exactly one space required after comma
+            print1dim(data,'thrusters','Thrusters',fromtime,totime)
+                                                  ^ (bad-whitespace)
+C:302, 0: Exactly one space required after comma
+            print1dim(data,'thrusters','Thrusters',fromtime,totime)
+                                                           ^ (bad-whitespace)
+C:303, 0: Line too long (102/100) (line-too-long)
+C:303, 0: Exactly one space required after comma
+            printPlot(data,'thrusters', None ,'Thrusters', fromtime, totime, printallplots, plotarray)
+                          ^ (bad-whitespace)
+C:303, 0: No space allowed before comma
+            printPlot(data,'thrusters', None ,'Thrusters', fromtime, totime, printallplots, plotarray)
+                                             ^ (bad-whitespace)
+C:303, 0: Exactly one space required after comma
+            printPlot(data,'thrusters', None ,'Thrusters', fromtime, totime, printallplots, plotarray)
+                                             ^ (bad-whitespace)
+C:305, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:306, 0: Exactly one space required after comma
+            print1dim(data,'IMU','IMU',fromtime,totime)
+                          ^ (bad-whitespace)
+C:306, 0: Exactly one space required after comma
+            print1dim(data,'IMU','IMU',fromtime,totime)
+                                ^ (bad-whitespace)
+C:306, 0: Exactly one space required after comma
+            print1dim(data,'IMU','IMU',fromtime,totime)
+                                      ^ (bad-whitespace)
+C:306, 0: Exactly one space required after comma
+            print1dim(data,'IMU','IMU',fromtime,totime)
+                                               ^ (bad-whitespace)
+C:311, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:312, 0: Exactly one space required after comma
+            print1dim(data,'pressure','Pressure',fromtime,totime)
+                          ^ (bad-whitespace)
+C:312, 0: Exactly one space required after comma
+            print1dim(data,'pressure','Pressure',fromtime,totime)
+                                     ^ (bad-whitespace)
+C:312, 0: Exactly one space required after comma
+            print1dim(data,'pressure','Pressure',fromtime,totime)
+                                                ^ (bad-whitespace)
+C:312, 0: Exactly one space required after comma
+            print1dim(data,'pressure','Pressure',fromtime,totime)
+                                                         ^ (bad-whitespace)
+C:313, 0: Line too long (101/100) (line-too-long)
+C:317, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:318, 0: Exactly one space required after comma
+            print1dim(data,'cam_cur', 'Times',fromtime,totime)
+                          ^ (bad-whitespace)
+C:318, 0: Exactly one space required after comma
+            print1dim(data,'cam_cur', 'Times',fromtime,totime)
+                                             ^ (bad-whitespace)
+C:318, 0: Exactly one space required after comma
+            print1dim(data,'cam_cur', 'Times',fromtime,totime)
+                                                      ^ (bad-whitespace)
+C:320, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:321, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:321, 0: Exactly one space required around comparison
+            if (args.camnum!=None):
+                           ^^ (bad-whitespace)
+C:328, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:330, 0: No space allowed before :
+            else :
+                 ^ (bad-whitespace)
+C:331, 0: Exactly one space required after comma
+                print1dim(data,'cameras','Cameras',fromtime,totime)
+                              ^ (bad-whitespace)
+C:331, 0: Exactly one space required after comma
+                print1dim(data,'cameras','Cameras',fromtime,totime)
+                                        ^ (bad-whitespace)
+C:331, 0: Exactly one space required after comma
+                print1dim(data,'cameras','Cameras',fromtime,totime)
+                                                  ^ (bad-whitespace)
+C:331, 0: Exactly one space required after comma
+                print1dim(data,'cameras','Cameras',fromtime,totime)
+                                                           ^ (bad-whitespace)
+C:334, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:335, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:336, 0: Final newline missing (missing-final-newline)
+W:323,16: Redefining built-in 'str' (redefined-builtin)
+C:  1, 0: Module name "JsonLogparser" doesn't conform to snake_case naming style (invalid-name)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  4, 0: Unable to import 'numpy' (import-error)
+E:  5, 0: Unable to import 'matplotlib.pyplot' (import-error)
+W: 12, 8: Redefining name 'i' from outer scope (line 233) (redefined-outer-name)
+C:  9, 0: Function name "get_Directory" doesn't conform to snake_case naming style (invalid-name)
+C:  9, 0: Missing function docstring (missing-docstring)
+C: 12, 4: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+W: 41, 4: Redefining name 'i' from outer scope (line 233) (redefined-outer-name)
+C: 38, 0: Function name "getTimeIndex" doesn't conform to snake_case naming style (invalid-name)
+C: 38, 0: Missing function docstring (missing-docstring)
+C: 42, 4: Variable name "from_index" doesn't conform to camelCase naming style (invalid-name)
+C: 43, 4: Variable name "to_index" doesn't conform to camelCase naming style (invalid-name)
+C: 47,16: Variable name "from_index" doesn't conform to camelCase naming style (invalid-name)
+C: 49,16: Variable name "from_index" doesn't conform to camelCase naming style (invalid-name)
+C: 61,20: Variable name "to_index" doesn't conform to camelCase naming style (invalid-name)
+C: 63,20: Variable name "to_index" doesn't conform to camelCase naming style (invalid-name)
+W: 70,56: Redefining built-in 'all' (redefined-builtin)
+W: 81,12: Redefining name 'i' from outer scope (line 233) (redefined-outer-name)
+C: 70, 0: Function name "printPlot" doesn't conform to snake_case naming style (invalid-name)
+C: 70, 0: Missing function docstring (missing-docstring)
+R: 70, 0: Too many arguments (8/5) (too-many-arguments)
+C: 73,12: Comparison to None should be 'expr is None' (singleton-comparison)
+C: 81, 8: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+W: 87,12: No exception type(s) specified (bare-except)
+C: 99, 0: Missing function docstring (missing-docstring)
+C:108, 0: Missing function docstring (missing-docstring)
+R:108, 0: Too many arguments (6/5) (too-many-arguments)
+W:124, 4: No exception type(s) specified (bare-except)
+R:204, 4: Consider using ternary (((env) + ('/')) + (file_list[1]) if choice == 0 else ((env) + ('/')) + (file_list[0])) (consider-using-ternary)
+W:236,16: No exception type(s) specified (bare-except)
+W:327,16: No exception type(s) specified (bare-except)
+W:  6, 0: Unused Thread imported from threading (unused-import)
+C:  6, 0: standard import "from threading import Thread" should be placed before "import numpy as np" (wrong-import-order)
+************* Module Package
+E:105, 0: invalid syntax (<string>, line 105) (syntax-error)
+************* Module testproxy
+C:  7, 0: Exactly one space required before assignment
+ServerClass  = BaseHTTPServer.HTTPServer
+             ^ (bad-whitespace)
+C:  8, 0: Exactly one space required before assignment
+Protocol     = "HTTP/1.0"
+             ^ (bad-whitespace)
+C:  1, 0: Missing module docstring (missing-docstring)
+R:  1, 0: Similar lines in 2 files
+==cvTailClassify:2
+==cvTurbineDistance:2
+import subprocess
+import io
+import cv2
+import numpy as np
+from signal import signal, SIGPIPE, SIG_DFL
+from CVhandles import get_image, pushframe, pushdata
+from multiprocessing import Process, Pool
+import time
+signal(SIGPIPE, SIG_DFL)
+
+if __name__ == "__main__":
+    while True:
+        # load rgb image
+        curimage = get_image(0) (duplicate-code)
+R:  1, 0: Similar lines in 3 files
+==cvSimulate:1
+==cvTailClassify:2
+==cvTurbineDistance:2
+import subprocess
+import io
+import cv2
+import numpy as np
+from signal import signal, SIGPIPE, SIG_DFL
+from CVhandles import get_image, pushframe, pushdata
+from multiprocessing import Process, Pool
+import time
+signal(SIGPIPE, SIG_DFL)
+ (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==CcvSimulate:30
+==handles:35
+        imreq.stdin.write(bytearray(8 - len(lenbytes)))
+        imreq.stdin.write(lenbytes)
+        imreq.stdin.write(imdata)
+        imreq.stdin.close()
+        return len(imdata)
+    p = Process(target=push, args=(image,))
+    p.start()
+    return "Push Initiated"
+ (duplicate-code)
+R:  1, 0: Similar lines in 4 files
+==cvDistanceMeasure:1
+==cvSimulate:1
+==cvTailClassify:2
+==cvTurbineDistance:2
+import subprocess
+import io
+import cv2
+import numpy as np
+from signal import signal, SIGPIPE, SIG_DFL
+from CVhandles import get_image, pushframe, pushdata
+from multiprocessing import Process, Pool
+import time (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==CcvSimulate:0
+==handles:0
+import subprocess
+import io
+import cv2
+import numpy as np
+from signal import signal, SIGPIPE, SIG_DFL
+from multiprocessing import Process, Pool (duplicate-code)
+R:  1, 0: Similar lines in 6 files
+==CcvSimulate:0
+==cvDistanceMeasure:1
+==cvSimulate:1
+==cvTailClassify:2
+==cvTurbineDistance:2
+==handles:0
+import subprocess
+import io
+import cv2
+import numpy as np
+from signal import signal, SIGPIPE, SIG_DFL (duplicate-code)
+
+------------------------------------
+Your code has been rated at -0.38/10
+
