@@ -38,7 +38,7 @@ node {
                 SaveLog("meta.log")
                 withPythonEnv('/usr/bin/python'){
                     pysh 'pip install pylint'
-                    sh 'rm -r socketIO-client'
+                    sh 'rm -rf socketIO-client'
                     sh 'git clone https://github.com/AnotherOctopus/socketIO-client'
                     pysh 'pip install ./socketIO-client/'
                 }
@@ -61,6 +61,13 @@ node {
                         slackSend(color: "#FF0000",message: msg)
                         WindDown("BUILD FAILED")
                 }
+                try{    
+			sh "cd surface/ && npm install"
+                }catch(error){
+                        msg = "Hum, we failed building frontend. IAAAAAAAANNANAN" 
+                        slackSend(color: "#FF0000",message: msg)
+                        WindDown("Frontend  FAILED")
+                }
         }
         stage ('launchROV'){
                 try{
@@ -80,35 +87,35 @@ node {
                 // Lint Python
                 withPythonEnv('/usr/bin/python'){
                         try{
-                                pysh(returnStdout:true, script: 'find . -iname "*.py" | xargs pylint  --rcfile=.pylintrc > pylint.log').trim()
+                                pysh(returnStdout:true, script: 'pylint --rcfile=pylintrc.conf rov/ > pylint.log').trim()
+                                pysh(returnStdout:true, script: 'pylint --rcfile=pylintrc.conf rov/ >> pylint.log').trim()
                         }catch(error){
                                 linterrmsg +="Linting Python Files on PR#${PULLNUM} Failed!\n" 
                         }
                 }
 
                 // Lint Esx
-                sh "cd surface/"
                 try{
-                        sh(returnStdout:true, script: 'eslint -c "eslintrc.js" . > eslint.log').trim()
+                        sh(returnStdout:true, script: 'eslint -c "eslintrc.js" surface/ > eslint.log').trim()
                 }catch(error){
                         linterrmsg +="Linting JSX Files on PR#${PULLNUM} Failed!\n" 
                 }
-                sh "cd ../"
 
                 //Lint Go
-                golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d').trim()
-                if(golint != ""){
+                try{
+			golint = sh(returnStdout:true, script: 'find . -iname "*.go" | xargs gofmt -d > golint.log').trim()
+                }catch(error){
                         linterrmsg +="Linting go Files on PR#${PULLNUM} Failed!\n" 
                 }
-                sh "echo \"" + golint + " \" > golint.log"
+
+                SaveLog("pylint.log")
+                SaveLog("eslint.log")
+                SaveLog("golint.log")
 
                 if(linterrmsg != ""){
                         slackSend(color: "#FF0000",message: linterrmsg)
                         WindDown("LINTERROR")
                 }
-                SaveLog("pylint.log")
-                SaveLog("eslint.log")
-                SaveLog("golint.log")
         }
         stage ('test'){
                 withPythonEnv('/usr/bin/python'){

@@ -1,7 +1,2 @@
-dfdfdffd
-# CITest
-
-WOOOO DEVELOPING SHIT AND STUFF
-ugh
-blerg
-uodatinf newbranch you fucker
+# XX-Core
+Purdue IEEE ROV X10 Software repository for the 2017-2018 season.
