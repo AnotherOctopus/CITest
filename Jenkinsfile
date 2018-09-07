@@ -14,10 +14,18 @@ Find the logs here: http://aberdeen.purdueieee.org:1944/
 }
 
 def SendToPi(cmd){
-        sh """ssh pi@128.46.156.193 \'${cmd}\'"""
+	try{
+		sh """ssh pi@128.46.156.193 \'${cmd}\'"""
+	}catch(error){
+		WindDown("Sending command to pi did not work, asshole")
+	}
 }
 def SaveLog(filename){
-        sh "mv ${filename} ${env.logsite}/PR#${PULLNUM}"
+	try{
+		sh "mv ${filename} ${env.logsite}/PR#${PULLNUM}"
+	}catch(error){
+		WindDown("Could Not find log")
+	}
 }
 
 def sendStatus(state,target_url,description,context){
