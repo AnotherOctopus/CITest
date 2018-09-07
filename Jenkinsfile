@@ -96,7 +96,7 @@ node {
 
                 // Lint Esx
                 try{
-                        sh(returnStdout:true, script: 'eslint -c "eslintrc.js" surface/ > eslint.log').trim()
+                        sh(returnStdout:true, script: 'cd surface && eslint -c "../eslintrc.js" . > eslint.log').trim()
                 }catch(error){
                         linterrmsg +="Linting JSX Files on PR#${PULLNUM} Failed!\n" 
                 }
